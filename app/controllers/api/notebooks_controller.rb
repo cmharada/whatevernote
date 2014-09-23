@@ -5,11 +5,19 @@ class Api::NotebooksController < ApplicationController
     if @notebook.save
       render json: @notebook
     else
-      render json: @notebook.errors.full_messages, status: :unprocessable_entity
+      render json: @notebook.errors.full_messages,
+             status: :unprocessable_entity
     end
   end
   
   def update
+    @notebook = current_user.notebooks.find(params[:id])
+    if @notebook.update(notebook_params)
+      render json: @notebook
+    else
+      render json: @notebook.errors.full_messages,
+             status: :unprocessable_entity
+    end
   end
   
   def index
@@ -18,9 +26,14 @@ class Api::NotebooksController < ApplicationController
   end
   
   def show
+    @notebook = current_user.notebooks.find(params[:id]);
+    render json: @notebook
   end
   
   def destroy
+    @notebook = current_user.notebooks.find(params[:id]);
+    @notebook.destroy!
+    render json: {}
   end
   
   private

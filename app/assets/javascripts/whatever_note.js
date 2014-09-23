@@ -6,6 +6,7 @@ window.WhateverNote = {
   Routers: {},
   initialize: function() {
     WhateverNote.notebooks = new WhateverNote.Collections.Notebooks();
+    WhateverNote.notes = new WhateverNote.Collections.Notes();
     var router = new WhateverNote.Routers.AppRouter({
       $rootEl: $("#main")
     });

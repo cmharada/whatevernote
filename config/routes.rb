@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :notebooks, only: [:create, :update, :destroy, :index, :show]
+    resources :notes, only: [:create, :update, :destroy, :index, :show]
   end
 end

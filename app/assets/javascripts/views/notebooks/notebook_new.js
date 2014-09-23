@@ -20,7 +20,6 @@ WhateverNote.Views.NotebookNew = Backbone.View.extend({
     
     newNotebook.save({}, {
       success: function() {
-        console.log("Added");
         WhateverNote.notebooks.add(newNotebook);
       },
       
