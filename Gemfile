@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt'
+gem 'backbone-on-rails'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'

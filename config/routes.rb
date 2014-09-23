@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
+  
+  namespace :api do
+    resources :notebooks, only: [:create, :update, :destroy, :index, :show]
+  end
 end

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   
   attr_reader :password
   
+  has_many :notebooks
+  
   def self.generate_session_token!
     SecureRandom.urlsafe_base64(16);
   end

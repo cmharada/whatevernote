@@ -11,6 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.serializejson.min
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
+//= require underscore
+//= require backbone
+//= require whatever_note
+//= require_tree ../templates
+//= require_tree ./utils
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
