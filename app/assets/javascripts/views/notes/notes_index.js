@@ -4,7 +4,8 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   
   events: {
     "click .new-note": "newNote",
-    "click .notes-index": "showNote"
+    "click .notes-index": "showNote",
+    "click .edit-note": "editNote"
   },
   
   initialize: function() {
@@ -17,7 +18,15 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
     
     this.attachSubviews();
     
+    this.onRender();
+    
     return this;
+  },
+  
+  onRender: function() {
+    this.$(".note-preview").draggable({
+      helper: "clone"
+    });
   },
   
   showNewForm: function() {

@@ -3,5 +3,15 @@
 <form>
   <input type="text" name="note[title]" value="<%= note.escape("title") %>">
   <textarea name="note[contents]"><%= note.escape("contents") %></textarea>
+  <select name="note[notebook_id]">
+    <option value="null">
+      No Notebook
+    </option>
+    <% notebooks.each(function (notebook) { %>
+      <option value="<%= notebook.id %>">
+        <%= notebook.escape("title") %>
+      </option>
+    <% }) %>
+  </select>
   <input type="submit" value="Save">
 </form>

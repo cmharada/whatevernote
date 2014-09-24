@@ -4,15 +4,16 @@
       <button class="btn new-notebook">New Notebook</button>
     </li>
     <% notebooks.each(function(notebook) { %>
-      <li class="notebook">
+      <li class="notebook" data-id="<%= notebook.id %>">
         <a href="javascript:void(0)">
           <%= notebook.escape("title") %>
         </a>
+        <button class="btn edit-notebook">Edit</button>
       </li>
     <% }) %>
   </ul>
-  <div class="new-notebook-form hidden">
-  </div>
+  <div class="new-notebook-form hidden"></div>
+  <div class="edit-notebook-form"></div>
 </div>
 <div class="notes-index">
 </div>

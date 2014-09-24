@@ -6,7 +6,7 @@
       <button class="btn new-note">New Note</button>
     </li>
     <% notes.each(function(note) { %>
-      <li data-id="<%= note.id %>">
+      <li class="note-preview" data-id="<%= note.id %>">
         <a href="javascript:void(0)">
           <%= note.escape("title") %>
         </a>

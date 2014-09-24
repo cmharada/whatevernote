@@ -11,8 +11,14 @@ WhateverNote.Views.NoteShow = Backbone.View.extend({
   },
   
   render: function() {
-    var renderedContent = this.template({ note: this.model });
+    var renderedContent = this.template({
+      note: this.model,
+      notebooks: WhateverNote.notebooks
+    });
     this.$el.html(renderedContent);
+    
+    var selector = "option[value=" + this.model.get("notebook_id") + "]"
+    $(selector).attr("selected", "selected");
     
     return this;
   },
@@ -26,7 +32,7 @@ WhateverNote.Views.NoteShow = Backbone.View.extend({
       success: function() {
         //////////////////////////
       },
-      error: function() {
+      error: function(model, response) {
         /////////////////////////
       }
     });
