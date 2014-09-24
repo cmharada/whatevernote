@@ -28,9 +28,9 @@ WhateverNote.Views.NoteShow = Backbone.View.extend({
     
     var params = $(event.currentTarget).serializeJSON();
     this.model.set(params);
-    this.model.save({
+    this.model.save({}, {
       success: function() {
-        //////////////////////////
+        WhateverNote.notebooks.fetch();
       },
       error: function(model, response) {
         /////////////////////////
