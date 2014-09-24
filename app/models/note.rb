@@ -15,6 +15,5 @@ class Note < ActiveRecord::Base
   def user_must_own_notebook
     if (notebook && notebook.user != user) {
       errors.add(:notebook_id, "must be owned by same user as note");
-    }
   end
 end
