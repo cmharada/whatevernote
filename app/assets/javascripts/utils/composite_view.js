@@ -23,17 +23,18 @@ Backbone.CompositeView = Backbone.View.extend({
     });
   },
   
-  onRender: function() {
+  rendered: function() {
     var view = this;
     // Ensure that onRender methods are called after
     // subviews have been rendered on page
-    setTimeout(function() {
-      _(view.subviews()).each(function(subviews) {
-        _(subviews).each(function (subview) {
-          if (subview.onRender) {
-            subview.onRender();
-          }
-        });
+    if (this.onRender) {
+      this.onRender();
+    }
+    _(view.subviews()).each(function(subviews) {
+      _(subviews).each(function (subview) {
+        if (subview.rendered) {
+          subview.rendered();
+        }
       });
     });
   },

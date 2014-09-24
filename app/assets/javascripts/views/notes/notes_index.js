@@ -18,7 +18,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
     
     this.attachSubviews();
     
-    this.onRender();
+    this.rendered();
     
     return this;
   },

@@ -22,12 +22,12 @@ class Api::NotebooksController < ApplicationController
   
   def index
     @notebooks = current_user.notebooks
-    render json: @notebooks
+    render :index
   end
   
   def show
     @notebook = current_user.notebooks.find(params[:id]);
-    render json: @notebook
+    render :show
   end
   
   def destroy

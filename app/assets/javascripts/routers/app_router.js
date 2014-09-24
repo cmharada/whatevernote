@@ -11,6 +11,7 @@ WhateverNote.Routers.AppRouter = Backbone.Router.extend({
   main: function() {
     var view = new WhateverNote.Views.Main();
     this._swapView(view);
+    view.rendered();
   },
   
   _swapView: function(view) {

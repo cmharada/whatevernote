@@ -7,6 +7,7 @@
       <li class="notebook" data-id="<%= notebook.id %>">
         <a href="javascript:void(0)">
           <%= notebook.escape("title") %>
+          <span class="badge"><%= notebook.escape("note_count") %></span>
         </a>
         <button class="btn edit-notebook">Edit</button>
       </li>
