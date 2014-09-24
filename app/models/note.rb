@@ -6,6 +6,9 @@ class Note < ActiveRecord::Base
   belongs_to :user
   belongs_to :notebook
   
+  has_many :tag_assignments, dependent: :destroy
+  has_many :tags, through: :tag_assignments
+  
   private
   
   def ensure_title
