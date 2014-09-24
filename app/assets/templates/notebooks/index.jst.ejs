@@ -1,16 +1,18 @@
-<ul class="nav nav-pills nav-stacked">
-  <li>
-    <button class="btn new-notebook">New Notebook</button>
-  </li>
-  <% notebooks.each(function(notebook) { %>
-    <li class="notebook">
-      <a href="javascript:void(0)">
-        <%= notebook.escape("title") %>
-      </a>
+<div class="left-sidebar">
+  <ul class="nav nav-pills nav-stacked">
+    <li>
+      <button class="btn new-notebook">New Notebook</button>
     </li>
-  <% }) %>
-</ul>
-<div class="new-notebook-form hidden">
+    <% notebooks.each(function(notebook) { %>
+      <li class="notebook">
+        <a href="javascript:void(0)">
+          <%= notebook.escape("title") %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <div class="new-notebook-form hidden">
+  </div>
 </div>
 <div class="notes-index">
 </div>

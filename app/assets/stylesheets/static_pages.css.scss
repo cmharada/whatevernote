@@ -1,3 +1,22 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.left-sidebar {
+  width: 250px;
+  float: left;
+  background: lightgray;
+}
+
+.notes-index {
+  float: left;
+}
+
+.middle-column {
+  width: 350px;
+  float: left;
+}
+
+.note-show {
+  float: left;
+}
