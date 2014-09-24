@@ -1,5 +1,8 @@
 /*global WhateverNote JST */
 WhateverNote.Views.NotebookEdit = Backbone.View.extend({
+  tagName: "div",
+  className: "notebook-edit-view",
+  
   template: JST["notebooks/edit"],
   
   events: {

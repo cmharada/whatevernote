@@ -1,5 +1,8 @@
 /*global WhateverNote JST */
 WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
+  tagName: "div",
+  className: "notes-index-view",
+  
   template: JST["notes/index"],
   
   events: {
@@ -54,12 +57,12 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   showNote: function(event) {
     var id = $(event.target).parent("li").data("id");
     if (this.showView) {
-      this.removeSubview(".note-show", this.showView);
+      this.removeSubview(".show-area", this.showView);
     }
     var note = this.collection.getOrFetch(id);
     this.showView = new WhateverNote.Views.NoteShow({
       model: note
     });
-    this.addSubview(".note-show", this.showView);
+    this.addSubview(".show-area", this.showView);
   }
 });

@@ -1,5 +1,8 @@
 /*global WhateverNote JST */
 WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
+  tagName: "div",
+  className: "note-show-view",
+  
   template: JST["notes/show"],
   
   events: {

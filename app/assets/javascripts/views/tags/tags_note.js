@@ -1,5 +1,8 @@
 /*global WhateverNote JST */
 WhateverNote.Views.TagsNote = Backbone.View.extend({
+  tagName: "div",
+  className: "tags-note-view",
+  
   template: JST['tags/tags_note'],
   
   events: {

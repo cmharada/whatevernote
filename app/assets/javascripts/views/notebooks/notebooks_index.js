@@ -1,5 +1,7 @@
 /*global WhateverNote JST */
 WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
+  tagName: "div",
+  className: "notebooks-index-view",
   template: JST['notebooks/index'],
   
   events: {
@@ -13,12 +15,6 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
     
     var newView = new WhateverNote.Views.NotebookNew();
     this.addSubview(".new-notebook-form", newView);
-
-    WhateverNote.notes.fetch();
-    var indexView = new WhateverNote.Views.NotesIndex({
-      collection: WhateverNote.notes
-    });
-    this.addSubview(".notes-index", indexView);
   },
 
   render: function() {

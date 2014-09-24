@@ -1,5 +1,8 @@
 /*global WhateverNote JST */
 WhateverNote.Views.NotebookNew = Backbone.View.extend({
+  tagName: "div",
+  className: "notebook-new-view",
+  
   template: JST["notebooks/new"],
   
   events: {
