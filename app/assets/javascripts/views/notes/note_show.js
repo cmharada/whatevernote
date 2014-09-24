@@ -9,7 +9,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     
-    var tagsView = new WhateverNote.Views.TagsIndex({
+    var tagsView = new WhateverNote.Views.TagsNote({
       collection: this.model.tags()
     });
     this.addSubview(".tags", tagsView);
@@ -24,6 +24,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     
     var selector = "option[value=" + this.model.get("notebook_id") + "]";
     $(selector).attr("selected", "selected");
+    
+    this.attachSubviews();
     
     return this;
   },

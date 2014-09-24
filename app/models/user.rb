@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   attr_reader :password
   
   has_many :notebooks, dependent: :destroy
-  
   has_many :notes, dependent: :destroy
+  has_many :tags, dependent: :destroy
   
   def self.generate_session_token!
     SecureRandom.urlsafe_base64(16);
