@@ -1,0 +1,7 @@
+<h1><%= note.escape("title") %></h1>
+
+<form>
+  <input type="text" name="note[title]" value="<%= note.escape("title") %>">
+  <textarea name="note[content]"><%= note.escape("content") %></textarea>
+  <input type="submit" value="Save">
+</form>

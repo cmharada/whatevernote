@@ -1,14 +1,17 @@
 <h1>Notes Index</h1>
 
-<ul class="nav nav-pills nav-stacked">
+<ul class="nav nav-pills nav-stacked notes-index">
   <li>
     <button class="btn new-note">New Note</button>
   </li>
   <% notes.each(function(note) { %>
-    <li>
+    <li data-id="<%= note.id %>">
       <a href="javascript:void(0)">
-        <%= note.title %>
+        <%= note.escape("title") %>
       </a>
     </li>
   <% }) %>
 </ul>
+
+<div class="note-show">
+</div>

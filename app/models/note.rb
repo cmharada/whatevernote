@@ -1,9 +1,9 @@
 class Note < ActiveRecord::Base
-  validates :title, :notebook, presence: true
+  validates :title, :user, presence: true
   
   before_validation :ensure_title
   
-  belongs_to :notebook
+  belongs_to :user
   
   private
   

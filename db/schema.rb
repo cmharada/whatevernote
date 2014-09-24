@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923214601) do
+ActiveRecord::Schema.define(version: 20140923234504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notebook_notes", force: true do |t|
+    t.integer  "notebook_id", null: false
+    t.integer  "note_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notebook_notes", ["note_id"], name: "index_notebook_notes_on_note_id", unique: true, using: :btree
+  add_index "notebook_notes", ["notebook_id"], name: "index_notebook_notes_on_notebook_id", using: :btree
 
   create_table "notebooks", force: true do |t|
     t.string   "title",      null: false
@@ -26,14 +36,14 @@ ActiveRecord::Schema.define(version: 20140923214601) do
   add_index "notebooks", ["user_id"], name: "index_notebooks_on_user_id", using: :btree
 
   create_table "notes", force: true do |t|
-    t.string   "title",       null: false
-    t.integer  "notebook_id", null: false
+    t.string   "title",      null: false
     t.text     "contents"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",    null: false
   end
 
-  add_index "notes", ["notebook_id"], name: "index_notes_on_notebook_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false

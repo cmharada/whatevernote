@@ -9,11 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :notebooks
   
-  has_many(
-    :notes,
-    through: :notebooks,
-    source: :notes
-  )
+  has_many :notes
   
   def self.generate_session_token!
     SecureRandom.urlsafe_base64(16);
