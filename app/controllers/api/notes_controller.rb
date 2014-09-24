@@ -25,12 +25,12 @@ class Api::NotesController < ApplicationController
   
   def index
     @notes = current_user.notes
-    render json: @notes
+    render :index
   end
   
   def show
     @note = current_user.notes.find(params[:id])
-    render json: @note
+    render :show
   end
   
   private

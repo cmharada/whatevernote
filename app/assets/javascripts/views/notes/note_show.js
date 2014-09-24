@@ -1,5 +1,5 @@
 /*global WhateverNote JST */
-WhateverNote.Views.NoteShow = Backbone.View.extend({
+WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   template: JST["notes/show"],
   
   events: {
@@ -8,6 +8,11 @@ WhateverNote.Views.NoteShow = Backbone.View.extend({
   
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    
+    var tagsView = new WhateverNote.Views.TagsIndex({
+      collection: this.model.tags()
+    });
+    this.addSubview(".tags", tagsView);
   },
   
   render: function() {
@@ -17,7 +22,7 @@ WhateverNote.Views.NoteShow = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     
-    var selector = "option[value=" + this.model.get("notebook_id") + "]"
+    var selector = "option[value=" + this.model.get("notebook_id") + "]";
     $(selector).attr("selected", "selected");
     
     return this;
