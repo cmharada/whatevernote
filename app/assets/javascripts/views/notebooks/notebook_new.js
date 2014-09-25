@@ -28,6 +28,7 @@ WhateverNote.Views.NotebookNew = Backbone.View.extend({
       
       error: function(model, response) {
         // SHOW ERRORS
+        alert("ERROR MAKING NEW NOTEBOOK")
       }
     });
   }

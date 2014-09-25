@@ -2,6 +2,7 @@
 WhateverNote.Collections.Notebooks = Backbone.Collection.extend({
   url: "/api/notebooks",
   model: WhateverNote.Models.Notebook,
+  comparator: "id",
 
   getOrFetch: function(id) {
     var notebookCollection = this;

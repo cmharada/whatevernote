@@ -3,7 +3,7 @@ class Api::NotebooksController < ApplicationController
     @notebook = current_user.notebooks.new(notebook_params)
     
     if @notebook.save
-      render json: @notebook
+      render :show
     else
       render json: @notebook.errors.full_messages,
              status: :unprocessable_entity

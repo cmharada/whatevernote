@@ -7,11 +7,12 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   events: {
     "click .new-notebook": "showNewForm",
     "click .notebook": "showNotebookIndex",
-    "click .edit-notebook": "showEditForm"
+    "click .edit-notebook": "showEditForm",
+    "click .delete-notebook": "deleteNotebook"
   },
   
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync add remove", this.render);
     
     var newView = new WhateverNote.Views.NotebookNew();
     this.addSubview(".new-notebook-form", newView);
@@ -46,6 +47,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
           },
           error: function(model, response) {
             //////////////////
+            alert("ERROR REASSIGNING NOTE TO NOTEBOOK");
           }
         });
       }
@@ -66,5 +68,12 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
       model: notebook
     });
     this.addSubview(".edit-notebook-form", this.editView);
+  },
+  
+  deleteNotebook: function(event) {
+    //TODO Ask For Confirmation
+    var id = $(event.currentTarget).parent(".notebook").data("id");
+    var notebook = this.collection.getOrFetch(id);
+    notebook.destroy();
   }
 });
