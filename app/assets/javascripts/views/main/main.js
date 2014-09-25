@@ -11,6 +11,12 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
     });
     this.addSubview(".left-sidebar", notesIndex);
     
+    WhateverNote.tags.fetch();
+    var tagsIndex = new WhateverNote.Views.TagsIndex({
+      collection: WhateverNote.tags
+    });
+    this.addSubview(".left-sidebar", tagsIndex);
+    
     WhateverNote.notes.fetch();
     var indexView = new WhateverNote.Views.NotesIndex({
       collection: WhateverNote.notes
