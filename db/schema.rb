@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924225509) do
+ActiveRecord::Schema.define(version: 20140925162455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140924225509) do
   end
 
   add_index "tag_assignments", ["note_id"], name: "index_tag_assignments_on_note_id", using: :btree
+  add_index "tag_assignments", ["tag_id", "note_id"], name: "index_tag_assignments_on_tag_id_and_note_id", unique: true, using: :btree
   add_index "tag_assignments", ["tag_id"], name: "index_tag_assignments_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|

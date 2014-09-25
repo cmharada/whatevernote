@@ -1,8 +1,14 @@
 <h5>Tags</h5>
-<ul>
+<button class="btn new-tag">New Tag</button>
+<ul class="nav nav-stacked">
   <% tags.each(function(tag) { %>
-    <li>
-      <%= tag.escape("name") %>
+    <li class="tag" data-id="<%= tag.id %>">
+      <a href="javascript: void(0)">
+        <%= tag.escape("name") %>
+        <span class="badge"><%= tag.escape("note_count") %></span>
+      </a>
     </li>
   <% }) %>
 </ul>
+<div class="new-tag-form hidden">
+</div>
