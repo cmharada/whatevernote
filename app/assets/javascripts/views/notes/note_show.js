@@ -44,6 +44,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       },
       error: function(model, response) {
         /////////////////////////
+        alert("ERROR SAVING NOTE");
       }
     });
   }

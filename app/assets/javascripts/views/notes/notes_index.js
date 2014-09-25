@@ -7,7 +7,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   
   events: {
     "click .new-note": "newNote",
-    "click .notes-index": "showNote",
+    "click .note-title-preview": "showNote",
     "click .edit-note": "editNote",
     "click .delete-note": "deleteNote"
   },
@@ -17,6 +17,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   },
   
   render: function() {
+    console.log("Rendering")
     var renderedContent = this.template({ notes: this.collection });
     this.$el.html(renderedContent);
     
@@ -66,7 +67,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
     this.addSubview(".show-area", this.showView);
   },
   
-  deleteNote: function(event) {
+  deleteNote: function() {
     //TODO: Ask for confirmation
     var id = $(event.target).parent("li").data("id");
     var note = WhateverNote.notes.get(id);

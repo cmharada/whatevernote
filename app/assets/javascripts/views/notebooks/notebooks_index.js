@@ -34,7 +34,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   onRender: function() {
-    var noteIndex = this;
+    var notebookIndex = this;
     this.$(".notebook").droppable({
       accept: ".note-preview",
       activeClass: "drag-active",
@@ -46,8 +46,8 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
         note.set("notebook_id", targetNotebookId);
         note.save({}, {
           success: function() {
-            noteIndex.collection.fetch();
-            noteIndex.render();
+            notebookIndex.collection.fetch();
+            notebookIndex.render();
           },
           error: function(model, response) {
             //////////////////
