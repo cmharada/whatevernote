@@ -17,10 +17,14 @@
   float: left;
 }
 
-.drag-notebook-active {
+.drag-active {
   background-color: gray;
 }
 
-.drag-notebook-hover {
+.drag-hover {
   background-color: blue;
+}
+
+.filter-active {
+  border: thin solid blue;
 }

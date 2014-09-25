@@ -6,20 +6,24 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   events: {
     "click .new-notebook": "showNewForm",
-    "click .notebook": "showNotebookIndex",
+    "click .notebook": "filterByNotebook",
     "click .edit-notebook": "showEditForm",
     "click .delete-notebook": "deleteNotebook"
   },
   
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(WhateverNote.notes, "sync add remove", this.render);
     
     var newView = new WhateverNote.Views.NotebookNew();
     this.addSubview(".new-notebook-form", newView);
   },
 
   render: function() {
-    var renderedContent = this.template({ notebooks: this.collection });
+    var renderedContent = this.template({
+      notebooks: this.collection,
+      allNotes: WhateverNote.notes
+    });
     this.$el.html(renderedContent);
     
     this.attachSubviews();
@@ -33,8 +37,8 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
     var noteIndex = this;
     this.$(".notebook").droppable({
       accept: ".note-preview",
-      activeClass: "drag-notebook-active",
-      hoverClass: "drag-notebook-hover",
+      activeClass: "drag-active",
+      hoverClass: "drag-hover",
       drop: function( event, ui ) {
         var targetNotebookId = $(event.target).data("id");
         var draggedNoteId = ui.draggable.data("id");
@@ -75,5 +79,12 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
     var id = $(event.currentTarget).parent(".notebook").data("id");
     var notebook = this.collection.getOrFetch(id);
     notebook.destroy();
+  },
+  
+  filterByNotebook: function(event) {
+    this.$(".notebook").removeClass("filter-active");
+    var id = $(event.currentTarget).data("id");
+    $(event.currentTarget).addClass("filter-active");
+    WhateverNote.filteredNotes.setNotebookFilter(id);
   }
 });

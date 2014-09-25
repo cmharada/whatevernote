@@ -6,7 +6,8 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
   template: JST["tags/index"],
   
   events: {
-    "click .new-tag": "showNewForm"
+    "click .new-tag": "showNewForm",
+    "click .tag": "toggleFilterTag"
   },
   
   initialize: function() {
@@ -18,7 +19,8 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
   
   render: function() {
     var renderedContent = this.template({
-      tags: this.collection
+      tags: this.collection,
+      filtered: WhateverNote.filteredNotes.getFilteredTags()
     });
     this.$el.html(renderedContent);
     
@@ -33,10 +35,9 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
     var tagIndex = this;
     this.$(".tag").droppable({
       accept: ".note-preview",
-      activeClass: "drag-notebook-active",
-      hoverClass: "drag-notebook-hover",
+      activeClass: "drag-active",
+      hoverClass: "drag-hover",
       drop: function(event, ui) {
-        debugger;
         var targetTagId = $(event.target).data("id");
         var draggedNoteId = ui.draggable.data("id");
         var assignment = new WhateverNote.Models.TagAssignment();
@@ -61,5 +62,15 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
   
   showNewForm: function() {
     this.$(".new-tag-form").removeClass("hidden");
+  },
+  
+  toggleFilterTag: function(event) {
+    var tagId = $(event.currentTarget).data("id");
+    WhateverNote.filteredNotes.toggleFilteredTag(tagId);
+    if (WhateverNote.filteredNotes.isFilteredTag(tagId)) {
+      $(event.currentTarget).addClass("filter-active");
+    } else {
+      $(event.currentTarget).removeClass("filter-active");
+    }
   }
 });

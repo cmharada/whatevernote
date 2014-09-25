@@ -12,7 +12,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   },
   
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "reset", this.render);
   },
   
   render: function() {

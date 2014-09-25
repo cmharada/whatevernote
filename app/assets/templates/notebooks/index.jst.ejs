@@ -1,5 +1,11 @@
 <button class="btn new-notebook">New Notebook</button>
 <ul class="nav nav-stacked">
+  <li class="notebook" data-id="null">
+    <a href="javascript:void(0)">
+      All Notes
+      <span class="badge"><%= allNotes.length %></span>
+    </a>
+  </li>
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <a href="javascript:void(0)">

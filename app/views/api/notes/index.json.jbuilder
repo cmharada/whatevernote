@@ -3,5 +3,6 @@ json.array! @notes do |note|
 
   json.tags note.tags do |tag|
     json.name tag.name
+    json.id tag.id
   end
 end

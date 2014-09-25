@@ -2,7 +2,10 @@
 <button class="btn new-tag">New Tag</button>
 <ul class="nav nav-stacked">
   <% tags.each(function(tag) { %>
-    <li class="tag" data-id="<%= tag.id %>">
+    <li class="tag
+      <% if (_.contains(filtered, tag.id)) { %>
+        filter-active
+      <% } %>" data-id="<%= tag.id %>">
       <a href="javascript: void(0)">
         <%= tag.escape("name") %>
         <span class="badge"><%= tag.escape("note_count") %></span>
