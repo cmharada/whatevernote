@@ -2,9 +2,11 @@
 WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
   model: WhateverNote.Models.Note,
   
-  initialize: function(options) {
+  comparator: "id",
+  
+  initialize: function(models, options) {
     this.allNotes = options.allNotes;
-    this.listenTo(this.allNotes, "sync reset change destroy", this.refilter);
+    this.listenTo(this.allNotes, "sync reset add change destroy", this.refilter);
     this.tagFilters = [];
     this.notebookFilter = null;
     this.textFilter = "";

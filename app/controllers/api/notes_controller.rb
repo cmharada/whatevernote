@@ -21,6 +21,9 @@ class Api::NotesController < ApplicationController
   end
   
   def destroy
+    @note = current_user.notes.find(params[:id]);
+    @note.destroy!
+    render json: {}
   end
   
   def index

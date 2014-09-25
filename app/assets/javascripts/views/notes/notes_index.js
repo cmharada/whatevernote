@@ -8,7 +8,8 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   events: {
     "click .new-note": "newNote",
     "click .notes-index": "showNote",
-    "click .edit-note": "editNote"
+    "click .edit-note": "editNote",
+    "click .delete-note": "deleteNote"
   },
   
   initialize: function() {
@@ -36,20 +37,19 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
     this.$(".new-note-form").removeClass("hidden");
   },
   
-  newNote: function() {
-    var notes = this.collection;
-    
+  newNote: function(events) {
     var newNote = new WhateverNote.Models.Note({
-      title: ""
+      title: "Untitled"
     });
     
     newNote.save({}, {
       success: function() {
-        notes.add(newNote);
+        WhateverNote.notes.add(newNote);
       },
       
       error: function(model, response) {
         // SHOW ERRORS
+        alert("ERROR CREATING NOTE");
       }
     });
   },
@@ -64,5 +64,12 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
       model: note
     });
     this.addSubview(".show-area", this.showView);
+  },
+  
+  deleteNote: function(event) {
+    //TODO: Ask for confirmation
+    var id = $(event.target).parent("li").data("id");
+    var note = WhateverNote.notes.get(id);
+    note.destroy();
   }
 });
