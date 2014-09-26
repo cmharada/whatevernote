@@ -18,6 +18,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-header {
+.page-header {
   background-color: #5D736E;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header form {
+  display: inline;
+}
+
+.page-header div {
+  display: inline;
 }

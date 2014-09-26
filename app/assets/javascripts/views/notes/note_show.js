@@ -1,4 +1,4 @@
-/*global WhateverNote JST */
+/*global WhateverNote JST CKEDITOR*/
 WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   tagName: "div",
   className: "note-show-view",
@@ -39,6 +39,11 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   
   updateNote: function(event) {
     event.preventDefault();
+
+    var instance;
+    for ( instance in CKEDITOR.instances ) {
+      CKEDITOR.instances[instance].updateElement();
+    }
     
     var params = $(event.currentTarget).serializeJSON();
     this.model.set(params);
