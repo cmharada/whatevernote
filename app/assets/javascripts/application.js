@@ -14,6 +14,7 @@
 //= require jquery.serializejson.min
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require ckeditor-jquery
 //= require bootstrap
 //= require underscore
 //= require backbone

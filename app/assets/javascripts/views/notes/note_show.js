@@ -33,6 +33,10 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     return this;
   },
   
+  onRender: function() {
+    $('textarea').ckeditor();
+  },
+  
   updateNote: function(event) {
     event.preventDefault();
     
