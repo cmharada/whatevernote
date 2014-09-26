@@ -38,27 +38,22 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     if (instance && instance !== this.editor) {
       CKEDITOR.remove(instance);
     }
-    if (!this.editor) {
-      this.editor = $("#editable").ckeditor({
-        customConfig: '',
-        toolbar: [
-            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ] },
-            '/',
-            { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
-        ]
-      });
-    } else {
+    if (this.editor) {
       this.$("#cke_editable").remove();
       CKEDITOR.remove(this.editor);
-      this.editor = $("#editable").ckeditor({
-        customConfig: '',
-        toolbar: [
-            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ] },
-            '/',
-            { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
-        ]
-      });
     }
+    $("#editable").ckeditor({
+      customConfig: '',
+      toolbar: [
+          { name: 'textstyle', items: ['Font', 'FontSize' ]},
+          { name: 'basicstyles', items: [ 'TextColor', 'Bold', 'Italic', 'Underline', 'Strike', 'Superscript', 'Subscript', 'RemoveFormat' ] },
+          { name: 'align', items: [ 'Indent', 'Outdent', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+          { name: 'lists', items: [ 'NumberedList', 'BulletedList' ]},
+          { name: 'media', items: [ 'Checkbox', 'Image', 'Table', 'HorizontalRule'] },
+          { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] }
+      ]
+    });
+    this.editor = CKEDITOR.instances["editable"];
   },
   
   updateNote: function(event) {
