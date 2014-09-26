@@ -34,7 +34,31 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   onRender: function() {
-    $('textarea').ckeditor();
+    var instance = CKEDITOR.instances["editable"];
+    if (instance && instance !== this.editor) {
+      CKEDITOR.remove(instance);
+    }
+    if (!this.editor) {
+      this.editor = $("#editable").ckeditor({
+        customConfig: '',
+        toolbar: [
+            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ] },
+            '/',
+            { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
+        ]
+      });
+    } else {
+      this.$("#cke_editable").remove();
+      CKEDITOR.remove(this.editor);
+      this.editor = $("#editable").ckeditor({
+        customConfig: '',
+        toolbar: [
+            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ] },
+            '/',
+            { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
+        ]
+      });
+    }
   },
   
   updateNote: function(event) {
