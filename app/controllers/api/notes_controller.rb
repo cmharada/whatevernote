@@ -27,7 +27,8 @@ class Api::NotesController < ApplicationController
   end
   
   def index
-    @notes = current_user.notes
+    #includes
+    @notes = current_user.notes.includes(:tags);
     render :index
   end
   

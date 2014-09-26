@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925162455) do
+ActiveRecord::Schema.define(version: 20140926233655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "notebooks", force: true do |t|
-    t.string   "title",      null: false
-    t.integer  "user_id",    null: false
+    t.string   "title",                   null: false
+    t.integer  "user_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "notes_count", default: 0
   end
 
   add_index "notebooks", ["user_id"], name: "index_notebooks_on_user_id", using: :btree
@@ -47,10 +48,11 @@ ActiveRecord::Schema.define(version: 20140925162455) do
   add_index "tag_assignments", ["tag_id"], name: "index_tag_assignments_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",                 null: false
+    t.integer  "notes_count", default: 0
   end
 
   add_index "tags", ["user_id", "name"], name: "index_tags_on_user_id_and_name", unique: true, using: :btree

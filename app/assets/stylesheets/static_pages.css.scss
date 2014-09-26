@@ -22,7 +22,6 @@ html, body {
 
 .workspace-header {
   height: 50px;
-  border-bottom: thin solid gray;
 }
 
 .left-sidebar {
@@ -52,7 +51,8 @@ html, body {
   position: absolute;
   top: 0;
   bottom: 0;
-  overflow: auto;
+  overflow-x: visible;
+  overflow-y: scroll;
 }
 
 .show-area {

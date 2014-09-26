@@ -29,7 +29,8 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   
   onRender: function() {
     this.$(".note-preview").draggable({
-      helper: "clone"
+      helper: "clone",
+      appendTo: "body"
     });
   },
   

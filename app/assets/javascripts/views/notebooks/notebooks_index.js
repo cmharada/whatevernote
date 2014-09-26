@@ -54,6 +54,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
             alert("ERROR REASSIGNING NOTE TO NOTEBOOK");
           }
         });
+        $(ui.helper).remove();
       }
     });
   },

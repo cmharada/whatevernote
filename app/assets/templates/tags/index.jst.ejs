@@ -1,6 +1,12 @@
-<h5>Tags</h5>
-<button class="btn new-tag">New Tag</button>
-<ul class="nav nav-pills nav-stacked">
+<header class="tag-header"
+  data-toggle="collapse"
+  data-target=".tag-index">
+  <span class="caret"></span>Tags
+  <button class="btn btn-xs new-tag">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</header>
+<ul class="nav nav-pills nav-stacked tag-index collapse in">
   <% tags.each(function(tag) { %>
     <li class="tag
       <% if (_.contains(filtered, tag.id)) { %>
@@ -9,7 +15,7 @@
       <a href="javascript: void(0)">
         <span class="glyphicon glyphicon-tag"></span>
         <%= tag.escape("name") %>
-        <span class="badge"><%= tag.escape("note_count") %></span>
+        <span class="badge"><%= tag.escape("notes_count") %></span>
       </a>
     </li>
   <% }) %>

@@ -4,10 +4,10 @@ class Note < ActiveRecord::Base
   before_validation :ensure_title
   
   belongs_to :user
-  belongs_to :notebook
+  belongs_to :notebook, counter_cache: true
   
   has_many :tag_assignments, dependent: :destroy
-  has_many :tags, through: :tag_assignments
+  has_many :tags, through: :tag_assignments, counter_cache: true
   
   private
   
