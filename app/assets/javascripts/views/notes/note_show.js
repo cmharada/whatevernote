@@ -30,7 +30,15 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     
     this.attachSubviews();
     
+    this.rendered();
+    
     return this;
+  },
+  
+  onRender: function() {
+    tinyMCE.init({
+      selector: "textarea.editor"
+    });
   },
   
   updateNote: function(event) {

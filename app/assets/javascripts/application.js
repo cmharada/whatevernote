@@ -14,6 +14,7 @@
 //= require jquery.serializejson.min
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require tinymce-jquery
 //= require bootstrap
 //= require underscore
 //= require backbone
