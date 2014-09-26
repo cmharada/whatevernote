@@ -6,7 +6,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   events: {
     "click .new-notebook": "showNewForm",
-    "click .notebook": "filterByNotebook",
+    "click .notebook-title": "filterByNotebook",
     "click .edit-notebook": "showEditForm",
     "click .delete-notebook": "deleteNotebook"
   },
@@ -82,9 +82,9 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   filterByNotebook: function(event) {
-    this.$(".notebook").removeClass("filter-active");
-    var id = $(event.currentTarget).data("id");
-    $(event.currentTarget).addClass("filter-active");
+    this.$(".notebook").removeClass("active");
+    var id = $(event.currentTarget).parent(".notebook").data("id");
+    $(event.currentTarget).parent(".notebook").addClass("active");
     WhateverNote.filteredNotes.setNotebookFilter(id);
   }
 });

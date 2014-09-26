@@ -1,9 +1,11 @@
 <div class="middle-column">
-  <h1>Notes Index</h1>
+  <h3>Notes</h3>
 
   <ul class="nav nav-pills nav-stacked notes-index">
     <li>
-      <button class="btn new-note">New Note</button>
+      <button class="btn new-note">
+        <span class="glyphicon glyphicon-plus"></span>
+      </button>
     </li>
     <% notes.each(function(note) { %>
       <li class="note-preview" data-id="<%= note.id %>">

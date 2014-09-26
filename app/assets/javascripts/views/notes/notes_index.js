@@ -17,7 +17,6 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   },
   
   render: function() {
-    console.log("Rendering")
     var renderedContent = this.template({ notes: this.collection });
     this.$el.html(renderedContent);
     

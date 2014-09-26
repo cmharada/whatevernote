@@ -68,9 +68,9 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
     var tagId = $(event.currentTarget).data("id");
     WhateverNote.filteredNotes.toggleFilteredTag(tagId);
     if (WhateverNote.filteredNotes.isFilteredTag(tagId)) {
-      $(event.currentTarget).addClass("filter-active");
+      $(event.currentTarget).addClass("active");
     } else {
-      $(event.currentTarget).removeClass("filter-active");
+      $(event.currentTarget).removeClass("active");
     }
   }
 });

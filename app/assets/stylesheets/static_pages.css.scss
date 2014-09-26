@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#main {
+  background-color: #D0FFF4;
+  height: 100%;
+}
+
+.workspace-header {
+  
+}
+
 .left-sidebar {
   width: 250px;
   float: left;
-  background: lightgray;
+  
 }
 
 .middle-column {
@@ -18,13 +27,9 @@
 }
 
 .drag-active {
-  background-color: gray;
+  background-color: #91B2AB;
 }
 
 .drag-hover {
-  background-color: blue;
-}
-
-.filter-active {
-  border: thin solid blue;
+  background-color: #5D736E;
 }

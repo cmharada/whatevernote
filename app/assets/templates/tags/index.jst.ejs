@@ -1,12 +1,13 @@
 <h5>Tags</h5>
 <button class="btn new-tag">New Tag</button>
-<ul class="nav nav-stacked">
+<ul class="nav nav-pills nav-stacked">
   <% tags.each(function(tag) { %>
     <li class="tag
       <% if (_.contains(filtered, tag.id)) { %>
         filter-active
       <% } %>" data-id="<%= tag.id %>">
       <a href="javascript: void(0)">
+        <span class="glyphicon glyphicon-tag"></span>
         <%= tag.escape("name") %>
         <span class="badge"><%= tag.escape("note_count") %></span>
       </a>
