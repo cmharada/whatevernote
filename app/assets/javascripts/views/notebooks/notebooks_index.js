@@ -7,6 +7,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   events: {
     "click .new-notebook": "showNewForm",
     "click .notebook-title": "filterByNotebook",
+    "click .show-notebook-options": "showNotebookOptions",
     "click .edit-notebook": "showEditForm",
     "click .delete-notebook": "deleteNotebook"
   },
@@ -57,6 +58,11 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
         $(ui.helper).remove();
       }
     });
+  },
+  
+  showNotebookOptions: function(event) {
+    event.stopPropagation();
+    console.log("click");
   },
   
   showNewForm: function() {

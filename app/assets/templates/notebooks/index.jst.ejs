@@ -16,16 +16,18 @@
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <a href="javascript:void(0)" class="notebook-title">
-        <%= notebook.escape("title") %>
-        <span class="badge"><%= notebook.escape("notes_count") %></span>
-        <span class="show-notebook-options">
-          <span class="glyphicon glyphicon-expand"></span>
-        </span>
+        <div class="notebook-title">
+          <%= notebook.escape("title") %>
+          <span class="badge"><%= notebook.escape("notes_count") %></span>
+          <span class="show-notebook-options">
+            <span class="glyphicon glyphicon-expand"></span>
+          </span>
+        </div>
+        <div>
+          <button class="btn edit-notebook">Edit</button>
+          <button class="btn delete-notebook">Delete</button>
+        </div>
       </a>
-      <div>
-        <button class="btn edit-notebook">Edit</button>
-        <button class="btn delete-notebook">Delete</button>
-      </div>
     </li>
   <% }) %>
   <li>
