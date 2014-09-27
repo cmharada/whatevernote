@@ -18,15 +18,14 @@
       <a href="javascript:void(0)" class="notebook-title">
         <%= notebook.escape("title") %>
         <span class="badge"><%= notebook.escape("notes_count") %></span>
+        <span class="show-notebook-options">
+          <span class="glyphicon glyphicon-expand"></span>
+        </span>
       </a>
-      <span class="show-notebook-options dropdown-toggle"
-        data-toggle="dropdown">
-        <span class="glyphicon glyphicon-expand"></span>
-      </span>
-      <ul class="dropdown-menu">
+      <div>
         <button class="btn edit-notebook">Edit</button>
         <button class="btn delete-notebook">Delete</button>
-      </ul>
+      </div>
     </li>
   <% }) %>
   <li>
