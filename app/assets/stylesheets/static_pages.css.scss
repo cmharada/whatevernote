@@ -38,6 +38,7 @@ html, body {
   left: 250px;
   height: 100%;
   right: 0;
+  border-top: thin solid gray;
   overflow: auto;
 }
 
@@ -51,6 +52,7 @@ html, body {
   position: absolute;
   top: 0;
   bottom: 0;
+  border-right: thin solid gray;
   overflow-x: visible;
   overflow-y: scroll;
 }

@@ -1,10 +1,12 @@
 <header class="notebook-header"
   data-toggle="collapse"
   data-target=".notebook-index">
-  <span class="caret"></span>Notebooks
-  <button class="btn btn-xs new-notebook">
-    <span class="glyphicon glyphicon-plus"></span>
-  </button>
+  <span class="index-header">
+    <span class="caret"></span>Notebooks
+    <button class="btn btn-xxs new-notebook">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </span>
 </header>
 <ul class="nav nav-pills nav-stacked notebook-index collapse in">
   <li class="notebook" data-id="null">
@@ -16,16 +18,15 @@
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <a href="javascript:void(0)" class="notebook-title">
-        <div class="notebook-title dropdown">
+        <div class="notebook-title">
           <%= notebook.escape("title") %>
           <span class="badge"><%= notebook.escape("notes_count") %></span>
           <span class="show-notebook-options">
-            <span class="glyphicon glyphicon-expand"></span>
+            <button class="btn btn-xxs">
+              <span class="glyphicon glyphicon-expand"></span>
+            </button>
           </span>
-          <button class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-            Menu
-          </button>
-          <div class="dropdown-menu">
+          <div class="notebook-menu hidden">
             <button class="btn edit-notebook">Edit</button>
             <button class="btn delete-notebook">Delete</button>
           </div>
