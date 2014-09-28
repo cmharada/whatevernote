@@ -56,7 +56,6 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       ]
     });
     this.editor = CKEDITOR.instances["editable"];
-    $('.cke_inner').css('background','transparent');
   },
   
   updateNote: function(event) {
