@@ -44,6 +44,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     }
     $("#editable").ckeditor({
       customConfig: '',
+      removePlugins: 'elementspath,resize',
+      toolbarCanCollapse: 'true',
       toolbar: [
           { name: 'textstyle', items: ['Font', 'FontSize' ]},
           { name: 'basicstyles', items: [ 'TextColor', 'Bold', 'Italic', 'Underline', 'Strike', 'Superscript', 'Subscript', 'RemoveFormat' ] },
@@ -54,6 +56,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       ]
     });
     this.editor = CKEDITOR.instances["editable"];
+    $('.cke_inner').css('background','transparent');
   },
   
   updateNote: function(event) {
