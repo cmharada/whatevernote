@@ -71,7 +71,7 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
         }
       }
       if (that.textFilter !== "") {
-        var searchString = note.get("contents").toLowerCase();
+        var searchString = jQuery(note.get("contents")).text().toLowerCase();
         if (searchString.indexOf(that.textFilter) < 0) {
           return false;
         }
