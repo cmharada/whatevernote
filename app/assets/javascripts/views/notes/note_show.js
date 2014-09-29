@@ -35,7 +35,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   
   onRender: function() {
     var instance = CKEDITOR.instances["editable"];
-    if (instance && instance !== this.editor) {
+    if (instance) {
       CKEDITOR.remove(instance);
     }
     if (this.editor) {
