@@ -50,10 +50,13 @@ li:hover .show-notebook-options {
   display: inline;
 }
 
-.drag-active {
-  background-color: #91B2AB;
-}
+//.drag-active {
+//  background-color: #91B2AB;
+//}
 
 .drag-hover {
-  background-color: #5D736E;
+  background: -webkit-linear-gradient(left,#EFFFF4,#EFFFF4,#91B2AB); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,#EFFFF4,#EFFFF4,#91B2AB); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,#EFFFF4,#EFFFF4,#91B2AB); /*Fx 3.6-15*/
+  background: linear-gradient(to right, #EFFFF4,#EFFFF4,#91B2AB); /*Standard*/
 }

@@ -40,6 +40,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
       accept: ".note-preview",
       activeClass: "drag-active",
       hoverClass: "drag-hover",
+      tolerance: "pointer",
       drop: function( event, ui ) {
         var targetNotebookId = $(event.target).data("id");
         var draggedNoteId = ui.draggable.data("id");
