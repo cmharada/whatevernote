@@ -26,7 +26,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     
     var selector = "option[value=" + this.model.get("notebook_id") + "]";
-    $(selector).attr("selected", "selected");
+    this.$(selector).attr("selected", "selected");
     
     this.attachSubviews();
     
@@ -42,7 +42,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       this.$("#cke_editable").remove();
       CKEDITOR.remove(this.editor);
     }
-    $("#editable").ckeditor({
+    this.$("#editable").ckeditor({
       customConfig: '',
       removePlugins: 'elementspath,resize',
       toolbarCanCollapse: 'true',

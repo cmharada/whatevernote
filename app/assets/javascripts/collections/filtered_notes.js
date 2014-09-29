@@ -35,6 +35,11 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
     }
   },
   
+  setTextFilter: function(filterString) {
+    this.textFilter = filterString;
+    this.refilter();
+  },
+  
   getFilteredTags: function() {
     return this.tagFilters;
   },
@@ -55,7 +60,11 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
           return false;
         }
       }
-      //Filter by text search
+      if (that.textFilter !== "") {
+        if (note.get("contents").indexOf(that.textFilter) < 0) {
+          return false;
+        }
+      }
       return true;
     });
     this.reset(results);

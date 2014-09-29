@@ -15,11 +15,13 @@
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  width: 100%;
 }
 
 .left-sidebar header button {
   display: inline;
   float: right;
+  margin-right: 5px;
 }
 
 .left-sidebar a {

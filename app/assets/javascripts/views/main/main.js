@@ -4,6 +4,10 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
   className: "main-view",
   template: JST['main/main'],
   
+  events: {
+    "submit #search-bar": "handleSearch"
+  },
+  
   initialize: function() {
     WhateverNote.notebooks.fetch();
     var notesIndex = new WhateverNote.Views.NotebooksIndex({
@@ -32,5 +36,11 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
     this.attachSubviews();
     
     return this;
+  },
+  
+  handleSearch: function(event) {
+    event.preventDefault();
+    var searchString = this.$("#search-bar-input").val();
+    WhateverNote.filteredNotes.setTextFilter(searchString);
   }
 });

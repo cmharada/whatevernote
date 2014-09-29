@@ -3,7 +3,7 @@
   data-target=".tag-index">
   <span class="index-header">
     <span class="caret"></span>Tags
-    <button class="btn btn-xs new-tag">
+    <button class="btn btn-xxs btn-danger new-tag">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
   </span>
@@ -15,7 +15,7 @@
         filter-active
       <% } %>" data-id="<%= tag.id %>">
       <a href="javascript: void(0)">
-        <span class="glyphicon glyphicon-tag"></span>
+        <span class="caret"></span>
         <%= tag.escape("name") %>
         <span class="badge"><%= tag.escape("notes_count") %></span>
       </a>
