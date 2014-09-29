@@ -20,6 +20,8 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({ notes: this.collection });
     this.$el.html(renderedContent);
     
+    this.$(".notes-index-title").text(this.collection.getFilteredNotebook());
+    
     this.attachSubviews();
     
     this.rendered();

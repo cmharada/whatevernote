@@ -43,7 +43,7 @@ html, body {
 }
 
 .left-sidebar {
-  width: 250px;
+  width: 230px;
   position: absolute;
   left: 0;
   top: 0;
@@ -53,16 +53,16 @@ html, body {
 
 .main-space{
   position: absolute;
-  left: 250px;
+  left: 230px;
   height: 100%;
   right: 0;
-  border-top: thin solid gray;
+  border-top: thin solid #7D9992;
   overflow: auto;
 }
 
 .show-area {
   position: absolute;
-  left: 300px;
+  left: 350px;
   height: 100%;
   right: 0;
   overflow: auto;

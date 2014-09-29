@@ -19,6 +19,14 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
     }
   },
   
+  getFilteredNotebook: function() {
+    if (this.notebookFilter === null) {
+      return "All Notes";
+    } else {
+      return WhateverNote.notebooks.get(this.notebookFilter).escape("title");
+    }
+  },
+  
   toggleFilteredTag: function(tagId) {
     var idx = this.tagFilters.indexOf(tagId);
     if (idx === -1) {
@@ -38,7 +46,7 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
   },
   
   setTextFilter: function(filterString) {
-    this.textFilter = filterString;
+    this.textFilter = filterString.toLowerCase();
     this.refilter();
   },
   
@@ -63,7 +71,8 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
         }
       }
       if (that.textFilter !== "") {
-        if (note.get("contents").indexOf(that.textFilter) < 0) {
+        var searchString = note.get("contents").toLowerCase();
+        if (searchString.indexOf(that.textFilter) < 0) {
           return false;
         }
       }

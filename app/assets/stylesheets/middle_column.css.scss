@@ -4,33 +4,37 @@
 }
 
 .middle-column {
-  width: 300px;
+  width: 350px;
   position: absolute;
   top: 0;
   bottom: 0;
-  border-right: thin solid gray;
+  border-right: thin solid #7D9992;
   overflow-x: visible;
   overflow-y: scroll;
 }
 
 .middle-column li {
-  border-bottom: thin solid gray;
+  border-bottom: thin solid #7D9992;
 }
 
-.middle-column a {
+.note-preview {
+  width: 350px;
+}
+
+.note-preview a {
   color: black;
 }
 
-.middle-column a:hover {
+.note-preview a:hover {
   color: black;
 }
 
-.middle-column .note-preview-title {
+.note-preview-title {
   font-size: 12px;
   font-weight: bold;
 }
 
-.middle-column .note-preview-contents {
+.note-preview-contents {
   font-size: 10px;
   overflow: hidden;
   height: 31px;
