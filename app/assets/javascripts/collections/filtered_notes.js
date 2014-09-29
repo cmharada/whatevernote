@@ -13,8 +13,10 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
   },
   
   setNotebookFilter: function(notebookId) {
-    this.notebookFilter = notebookId;
-    this.refilter();
+    if (this.notebookFilter !== notebookId) {
+      this.notebookFilter = notebookId;
+      this.refilter();
+    }
   },
   
   toggleFilteredTag: function(tagId) {

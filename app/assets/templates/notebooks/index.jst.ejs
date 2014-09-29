@@ -18,7 +18,7 @@
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <a href="javascript:void(0)" class="notebook-title">
-        <div class="notebook-title">
+        <div class="notebook-title-inner">
           <%= notebook.escape("title") %>
           <span class="badge"><%= notebook.escape("notes_count") %></span>
           <span class="show-notebook-options">
