@@ -1,0 +1,38 @@
+.notes-index-view {
+  height: 100%;
+  position: relative;
+}
+
+.middle-column {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-right: thin solid gray;
+  overflow-x: visible;
+  overflow-y: scroll;
+}
+
+.middle-column li {
+  border-bottom: thin solid gray;
+}
+
+.middle-column a {
+  color: black;
+}
+
+.middle-column a:hover {
+  color: black;
+}
+
+.middle-column .note-preview-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.middle-column .note-preview-contents {
+  font-size: 10px;
+  overflow: hidden;
+  height: 31px;
+  line-height: 10px;
+}

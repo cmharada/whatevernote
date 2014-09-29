@@ -10,9 +10,14 @@
     <% notes.each(function(note) { %>
       <li class="note-preview" data-id="<%= note.id %>">
         <a href="javascript:void(0)" class="note-title-preview">
-          <%= note.escape("title") %>
+          <header class="note-preview-title">
+            <%= note.escape("title") %>
+          </header>
+          <!-- <section class="note-preview-contents">
+            <%= note.preview() %>
+          </section> -->
         </a>
-        <button class="btn delete-note">Delete</button>
+        <!-- <button class="btn delete-note">Delete</button> -->
       </li>
     <% }) %>
   </ul>

@@ -60,21 +60,6 @@ html, body {
   overflow: auto;
 }
 
-.notes-index-view {
-  height: 100%;
-  position: relative;
-}
-
-.middle-column {
-  width: 300px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  border-right: thin solid gray;
-  overflow-x: visible;
-  overflow-y: scroll;
-}
-
 .show-area {
   position: absolute;
   left: 300px;
@@ -82,12 +67,4 @@ html, body {
   right: 0;
   overflow: auto;
   padding-right: 10px;
-}
-
-.drag-active {
-  background-color: #91B2AB;
-}
-
-.drag-hover {
-  background-color: #5D736E;
 }
