@@ -17,16 +17,17 @@
   border-bottom: thin solid #7D9992;
 }
 
-.note-preview {
+.ui-draggable-dragging {
   width: 350px;
 }
 
-.note-preview a {
-  color: black;
+.note-preview {
+  cursor: pointer;
+  margin: 0;
 }
 
-.note-preview a:hover {
-  color: black;
+.note-preview:hover {
+  background: gray;
 }
 
 .note-preview-title {

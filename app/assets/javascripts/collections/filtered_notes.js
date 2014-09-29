@@ -6,7 +6,7 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
   
   initialize: function(models, options) {
     this.allNotes = options.allNotes;
-    this.listenTo(this.allNotes, "sync reset add change destroy", this.refilter);
+    this.listenTo(this.allNotes, "sync add change destroy", this.refilter);
     this.tagFilters = [];
     this.notebookFilter = null;
     this.textFilter = "";
@@ -79,9 +79,5 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
       return true;
     });
     this.reset(results);
-  },
-  
-  getOrFetch: function(id) {
-    return this.allNotes.getOrFetch(id);
   }
 });

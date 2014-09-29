@@ -1,7 +1,7 @@
 <div class="middle-column">
   <h3 class="notes-index-title">Notes</h3>
 
-  <ul class="nav nav-pills nav-stacked notes-index">
+  <ul class="nav notes-index">
     <li>
       <button class="btn new-note">
         <span class="glyphicon glyphicon-plus"></span>
@@ -9,11 +9,9 @@
     </li>
     <% notes.each(function(note) { %>
       <li class="note-preview" data-id="<%= note.id %>">
-        <a href="javascript:void(0)" class="note-title-preview">
-          <span class="note-preview-title">
-            <%= note.escape("title") %>
-          </span>
-        </a>
+        <span class="note-preview-title">
+          <%= note.escape("title") %>
+        </span>
         <div class="note-preview-contents">
           <%= note.preview() %>
         </div>
