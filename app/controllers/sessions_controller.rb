@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       params[:user][:password])
     if user
       login!(user)
-      redirect_to notes_url
+      redirect_to root_url
     else
       @user = User.new({ username: params[:user][:username] })
       flash.now[:errors] = ["Bad Username or Password"]
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
   
   def destroy
     logout!
-    redirect_to :splash
+    redirect_to :welcome_url
   end
 end

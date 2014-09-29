@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#splash'
+  root to: 'static_pages#notes'
   
-  get '/splash', to: 'static_pages#splash'
+  get '/welcome', to: 'static_pages#welcome'
   get '/notes', to: 'static_pages#notes'
   
   resources :users, only: [:new, :create]

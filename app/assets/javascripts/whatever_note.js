@@ -17,7 +17,3 @@ window.WhateverNote = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  WhateverNote.initialize();
-});
