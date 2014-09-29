@@ -58,7 +58,6 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   },
   
   showNote: function(event) {
-    console.log("SHOW");
     var id = $(event.currentTarget).data("id");
     if (this.showView) {
       this.removeSubview(".show-area", this.showView);
