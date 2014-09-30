@@ -4,6 +4,7 @@ window.WhateverNote = {
   Collections: {},
   Views: {},
   Routers: {},
+  Modals: {},
   initialize: function() {
     WhateverNote.notebooks = new WhateverNote.Collections.Notebooks();
     WhateverNote.notes = new WhateverNote.Collections.Notes();

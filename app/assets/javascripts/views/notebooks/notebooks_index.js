@@ -15,9 +15,6 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(WhateverNote.notes, "sync add remove", this.render);
-    
-    var newView = new WhateverNote.Views.NotebookNew();
-    this.addSubview(".new-notebook-form", newView);
   },
 
   render: function() {
@@ -50,7 +47,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
             notebookIndex.collection.fetch();
           },
           error: function(model, response) {
-            //////////////////
+            //TODO ERROR HANDLING
             alert("ERROR REASSIGNING NOTE TO NOTEBOOK");
           }
         });
@@ -67,7 +64,9 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   showNewForm: function() {
     event.stopPropagation();
-    this.$(".new-notebook-form").removeClass("hidden");
+
+    var modalView = new WhateverNote.Modals.NotebookNew();
+    $("#modal-space").html(modalView.render().el);
   },
   
   showEditForm: function(event) {
@@ -84,6 +83,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   deleteNotebook: function(event) {
     //TODO Ask For Confirmation
+    debugger;
     var id = $(event.currentTarget).parent(".notebook").data("id");
     var notebook = this.collection.getOrFetch(id);
     notebook.destroy();

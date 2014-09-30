@@ -1,5 +1,26 @@
-<form>
-  <label>Title</label>
-  <input name="notebook[title]">
-  <input type="submit" value="New Notebook">
-</form>
+<div class="bbm-modal__topbar">
+  <span class="bbm-modal__title">
+    New Notebook
+  </span>
+</div>
+<div class="bbm-modal__section">
+  <form role="form" class="new-notebook-params">
+    <div class="form-group notebook-title">
+      <label for="notebook-title-form" class="control-label">
+        Title
+      </label>
+      <input name="notebook[title]"
+        id="notebook-title-form"
+        class="form-control">
+    </div>
+  </form>
+  <div class="error-space"></div>
+</div>
+<div class="bbm-modal__bottombar">
+  <a href="javascript:void(0)" class="close-modal bbm-button">
+    Close
+  </a>
+  <a href="javascript:void(0)" class="submit-new-notebook bbm-button">
+    Create New Notebook
+  </a>
+</div>

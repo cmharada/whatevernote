@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require jquery.ui.all
+ *= require backbone.modal
+ *= require backbone.modal.theme
  *= require_tree .
  *= require_self
  */

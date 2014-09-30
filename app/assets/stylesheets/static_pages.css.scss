@@ -33,7 +33,7 @@ html, body {
 
 .inner-workspace-header {
   display: inline-block;
-  width: 100%;
+  width: calc(100% - 250px);
   height: 50px;
   position: absolute;
   top: 0;
