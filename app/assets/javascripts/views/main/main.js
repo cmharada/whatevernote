@@ -9,18 +9,28 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
   },
   
   initialize: function() {
+    this.initializeNotebookIndex();
+    this.initializeTagIndex();
+    this.initializeNoteIndex();
+  },
+  
+  initializeNotebookIndex: function() {
     WhateverNote.notebooks.fetch();
     var notesIndex = new WhateverNote.Views.NotebooksIndex({
       collection: WhateverNote.notebooks
     });
     this.addSubview(".left-sidebar", notesIndex);
-    
+  },
+  
+  initializeTagIndex: function() {
     WhateverNote.tags.fetch();
     var tagsIndex = new WhateverNote.Views.TagsIndex({
       collection: WhateverNote.tags
     });
     this.addSubview(".left-sidebar", tagsIndex);
-    
+  },
+  
+  initializeNoteIndex: function() {
     WhateverNote.notes.fetch();
 
     var indexView = new WhateverNote.Views.NotesIndex({

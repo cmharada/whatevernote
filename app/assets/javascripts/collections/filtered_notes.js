@@ -61,23 +61,35 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
         note.get("notebook_id") !== that.notebookFilter) {
         return false;
       }
-      if (that.tagFilters.length !== 0) {
-        var noteTagIds = note.tags().pluck("id");
-        var hasAllTags = _.every(that.tagFilters, function(tagId) {
-          return _.contains(noteTagIds, tagId);
-        });
-        if (!hasAllTags) {
-          return false;
-        }
+      if (that.tagFilters.length !== 0 && !that._filterByTags(note)) {
+        return false;
       }
-      if (that.textFilter !== "") {
-        var searchString = jQuery(note.get("contents")).text().toLowerCase();
-        if (searchString.indexOf(that.textFilter) < 0) {
-          return false;
-        }
+      if (that.textFilter !== "" && !that._filterByText(note)) {
+        return false;
       }
       return true;
     });
     this.reset(results);
+  },
+  
+  _filterByTags: function(note) {
+    var noteTagIds = note.tags().plush("id");
+    var hasAllTags = _.every(this.tagFilters, function(tagId) {
+      return _.contains(noteTagIds, tagId);
+    });
+    if (!hasAllTags) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+  
+  _filterByText: function(note) {
+    var searchString = jQuery(note.get("contents")).text().toLowerCase();
+    if (searchString.indexOf(this.textFilter) < 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
 });
