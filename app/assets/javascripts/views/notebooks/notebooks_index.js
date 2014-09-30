@@ -63,7 +63,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   showNotebookOptions: function(event) {
     event.stopPropagation();
-    this.$(".notebook-menu").removeClass("hidden");
+    $(event.currentTarget).parent().children(".notebook-menu").removeClass("hidden");
   },
   
   showNewForm: function() {
