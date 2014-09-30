@@ -23,19 +23,27 @@ html, body {
 .workspace-header {
   height: 50px;
   line-height: 50px;
+  position: relative;
+}
+
+.workspace-header-img {
+  display: inline-block;
+  float:left;
 }
 
 .inner-workspace-header {
   display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
   width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 250px;
 }
 
 #search-bar {
   display: inline-block;
-  position: absolute;
-  left: 250px;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 #search-bar-input {

@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
   
   def destroy
     logout!
-    redirect_to :welcome_url
+    redirect_to :welcome
   end
 end
