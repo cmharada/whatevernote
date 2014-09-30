@@ -13,14 +13,24 @@
     <li class="tag
       <% if (_.contains(filtered, tag.id)) { %>
         filter-active
-      <% } %>" data-id="<%= tag.id %>">
+      <% } %>"
+      data-id="<%= tag.id %>">
       <div class="item">
         <span class="glyphicon glyphicon-tag"></span>
         <%= tag.escape("name") %>
         <span class="badge"><%= tag.escape("notes_count") %></span>
+        <span class="show-options">
+          <div class="show-options-button">
+            <button class="btn btn-xxs">
+              <span class="caret"></span></span>
+            </button>
+          </div>
+          <div class="nav options-menu hidden">
+            <button class="btn edit-tag">Edit</button>
+            <button class="btn delete-tag">Delete</button>
+          </div>
+        </span>
       </div>
     </li>
   <% }) %>
 </ul>
-<div class="new-tag-form hidden">
-</div>

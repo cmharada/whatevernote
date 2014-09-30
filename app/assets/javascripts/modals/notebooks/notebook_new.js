@@ -4,6 +4,15 @@ WhateverNote.Modals.NotebookNew = Backbone.Modal.extend({
   cancelEl: ".close-modal",
   submitEl: ".submit-new-notebook",
   
+  events: {
+    "submit form": "stopSubmit"
+  },
+  
+  stopSubmit: function(event) {
+    event.preventDefault();
+    this.$(".submit-new-notebook").click();
+  },
+  
   beforeSubmit: function() {
     var params = this.$(".new-notebook-params").serializeJSON();
     if (params["notebook"]["title"] === "") {
@@ -24,8 +33,8 @@ WhateverNote.Modals.NotebookNew = Backbone.Modal.extend({
       },
       error: function(model, response) {
         //TODO SHOW ERRORS
-        alert("ERROR MAKING NEW NOTEBOOK")
+        alert("ERROR MAKING NEW NOTEBOOK");
       }
     });
   }
-})
+});

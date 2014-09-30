@@ -18,22 +18,20 @@
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <div class="notebook-title item">
-        <div class="notebook-title-inner">
-          <span class="glyphicon glyphicon-folder-open"></span>
-          <%= notebook.escape("title") %>
-          <span class="badge"><%= notebook.escape("notes_count") %></span>
-          <span class="show-notebook-options">
-            <div class="show-notebook-options-button">
-              <button class="btn btn-xxs">
-                <span class="caret"></span></span>
-              </button>
-            </div>
-            <div class="nav notebook-menu hidden">
-              <button class="btn edit-notebook">Edit</button>
-              <button class="btn delete-notebook">Delete</button>
-            </div>
-          </span>
-        </div>
+        <span class="glyphicon glyphicon-folder-open"></span>
+        <%= notebook.escape("title") %>
+        <span class="badge"><%= notebook.escape("notes_count") %></span>
+        <span class="show-options">
+          <div class="show-options-button">
+            <button class="btn btn-xxs">
+              <span class="caret"></span></span>
+            </button>
+          </div>
+          <div class="nav options-menu hidden">
+            <button class="btn edit-notebook">Edit</button>
+            <button class="btn delete-notebook">Delete</button>
+          </div>
+        </span>
       </div>
     </li>
   <% }) %>
@@ -41,4 +39,3 @@
     <span class="glyphicon glyphicon-trash"></span>
   </li>
 </ul>
-<div class="edit-notebook-form"></div>

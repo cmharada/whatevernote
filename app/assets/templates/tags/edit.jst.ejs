@@ -1,6 +1,6 @@
 <div class="bbm-modal__topbar">
   <span class="bbm-modal__title">
-    New Tag
+    Rename Tag
   </span>
 </div>
 <div class="bbm-modal__section">
@@ -11,7 +11,8 @@
       </label>
       <input name="tag[name]"
         id="tag-name-form"
-        class="form-control">
+        class="form-control"
+        value="<%= name %>">
     </div>
   </form>
   <div class="error-space"></div>
@@ -20,7 +21,7 @@
   <a href="javascript:void(0)" class="close-modal bbm-button">
     Close
   </a>
-  <a href="javascript:void(0)" class="submit-new-tag bbm-button">
-    Create New Tag
+  <a href="javascript:void(0)" class="submit-edit-tag bbm-button">
+    Edit Tag
   </a>
 </div>

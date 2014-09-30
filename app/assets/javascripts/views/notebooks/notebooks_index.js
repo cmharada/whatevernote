@@ -7,7 +7,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   events: {
     "click .new-notebook": "showNewForm",
     "click .notebook-title": "filterByNotebook",
-    "click .show-notebook-options": "showNotebookOptions",
+    "click .show-options": "showNotebookOptions",
     "click .edit-notebook": "showEditForm",
     "click .delete-notebook": "deleteNotebook"
   },
@@ -58,7 +58,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   showNotebookOptions: function(event) {
     event.stopPropagation();
-    var $dropdown = $(event.currentTarget).children(".notebook-menu");
+    var $dropdown = $(event.currentTarget).children(".options-menu");
     $dropdown.toggleClass('hidden');
   },
   

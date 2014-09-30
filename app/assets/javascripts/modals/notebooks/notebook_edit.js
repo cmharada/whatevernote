@@ -4,6 +4,15 @@ WhateverNote.Modals.NotebookEdit = Backbone.Modal.extend({
   cancelEl: ".close-modal",
   submitEl: ".submit-edit-notebook",
   
+  events: {
+    "submit form": "stopSubmit"
+  },
+  
+  stopSubmit: function(event) {
+    event.preventDefault();
+    this.$(".submit-edit-notebook").click();
+  },
+  
   beforeSubmit: function() {
     var params = this.$(".edit-notebook-params").serializeJSON();
     if (params["notebook"]["title"] === "") {

@@ -11,7 +11,7 @@ class Api::TagsController < ApplicationController
   end
   
   def show
-    @tag = Tag.find(params[:id]);
+    @tag = current_user.tags.find(params[:id])
     render :show
   end
   
@@ -21,9 +21,19 @@ class Api::TagsController < ApplicationController
   end
   
   def destroy
+    @tag = current_user.tags.find(params[:id])
+    @tag.destroy!
+    render json: {}
   end
   
   def update
+    @tag = current_user.tags.find(params[:id])
+    if @tag.update(tag_params)
+      render json: @tag
+    else
+      render json: @tag.errors.full_messages,
+             status: :unprocessable_entity
+    end
   end
   
   private
