@@ -25,7 +25,6 @@ WhateverNote.Views.TagNew = Backbone.View.extend({
       success: function() {
         WhateverNote.tags.add(newTag);
       },
-      
       error: function(model, response) {
         // SHOW ERRORS
         alert("ERROR MAKING NEW TAG");

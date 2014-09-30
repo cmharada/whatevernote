@@ -25,7 +25,6 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     
     this.attachSubviews();
-    
     this.rendered();
     
     return this;
@@ -53,7 +52,7 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
             WhateverNote.notes.fetch();
           },
           error: function(model, response) {
-            //////////////////////
+            //TODO: Actual error handling
             alert("ERROR ASSIGNING TAG TO NOTE");
           }
         });

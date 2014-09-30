@@ -28,7 +28,6 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     
     this.attachSubviews();
-    
     this.rendered();
     
     return this;
@@ -49,7 +48,6 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
         note.save({}, {
           success: function() {
             notebookIndex.collection.fetch();
-            notebookIndex.render();
           },
           error: function(model, response) {
             //////////////////
@@ -63,7 +61,8 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   showNotebookOptions: function(event) {
     event.stopPropagation();
-    $(event.currentTarget).parent().children(".notebook-menu").dropdown('toggle');
+    var $dropdown = $(event.currentTarget).parent().children(".notebook-menu");
+    $dropdown.dropdown('toggle');
   },
   
   showNewForm: function() {
@@ -92,8 +91,9 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   filterByNotebook: function(event) {
     this.$(".notebook").removeClass("active");
-    var id = $(event.currentTarget).parent(".notebook").data("id");
-    $(event.currentTarget).parent(".notebook").addClass("active");
+    var $notebook = $(event.currentTarget).parent(".notebook");
+    var id = $notebook.data("id");
+    $notebook.addClass("active");
     WhateverNote.filteredNotes.setNotebookFilter(id);
   }
 });
