@@ -11,7 +11,7 @@ WhateverNote.Models.Note = Backbone.Model.extend({
   
   preview: function() {
     //TODO: Remove tags, trim down to three lines
-    return jQuery(this.get("contents")).text();;
+    return jQuery(this.get("contents")).text();
   },
   
   parse: function(response) {
@@ -20,5 +20,18 @@ WhateverNote.Models.Note = Backbone.Model.extend({
       delete response.tags;
     }
     return response;
+  },
+  
+  assign: function(tagId, opts) {
+    var options = {
+      url: this.urlRoot + "/" + this.id + "/assign",
+      type: "POST",
+      attrs: {
+        tag_id: tagId
+      }
+    };
+    _.extend(options, opts);
+    
+    return Backbone.sync("create", this, options);
   }
 });

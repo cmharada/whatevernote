@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :notebooks, only: [:create, :update, :destroy, :index, :show]
     resources :notes, only: [:create, :update, :destroy, :index, :show]
+    post 'notes/:id/assign(.:format)', to: "notes#assign"
     resources :tags, only: [:create, :update, :destroy, :index, :show]
-    resources :tag_assignments, only: [:create]
   end
 end

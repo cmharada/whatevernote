@@ -31,7 +31,6 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
   },
   
   onRender: function() {
-    var tagIndex = this;
     this.$(".tag").droppable({
       accept: ".note-preview",
       activeClass: "drag-active",
@@ -40,20 +39,15 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
       drop: function(event, ui) {
         var targetTagId = $(event.target).data("id");
         var draggedNoteId = ui.draggable.data("id");
-        var assignment = new WhateverNote.Models.TagAssignment();
-        assignment.set({
-          tag_id: targetTagId,
-          note_id: draggedNoteId
-        });
-        assignment.save({}, {
+        var note = WhateverNote.notes.get(draggedNoteId);
+        note.assign(targetTagId, {
           success: function() {
-            tagIndex.collection.fetch();
-            tagIndex.render();
-            WhateverNote.notes.fetch();
+            WhateverNote.tags.fetch();
+            note.fetch();
           },
           error: function(model, response) {
-            //TODO: Actual error handling
-            alert("ERROR ASSIGNING TAG TO NOTE");
+            //TODO Error handling
+            alert("Error assigning tag to note");
           }
         });
       }
@@ -80,7 +74,13 @@ WhateverNote.Views.TagsIndex = Backbone.CompositeView.extend({
     //TODO Ask For Confirmation
     var id = $(event.currentTarget).parents(".tag").data("id");
     var tag = this.collection.get(id);
-    tag.destroy();
+    tag.destroy({
+      success: function() {
+        if (WhateverNote.filteredNotes.isFilteredTag(id)) {
+          WhateverNote.filteredNotes.toggleFilteredTag(id);
+        }
+      }
+    });
   },
   
   toggleFilterTag: function(event) {

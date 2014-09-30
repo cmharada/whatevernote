@@ -13,7 +13,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     
     var tagsView = new WhateverNote.Views.TagsNote({
-      collection: this.model.tags()
+      collection: this.model.tags(),
+      parentNote: this.model
     });
     this.addSubview(".tags", tagsView);
   },
