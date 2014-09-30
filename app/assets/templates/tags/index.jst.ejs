@@ -14,11 +14,11 @@
       <% if (_.contains(filtered, tag.id)) { %>
         filter-active
       <% } %>" data-id="<%= tag.id %>">
-      <a href="javascript: void(0)">
+      <div class="item">
         <span class="glyphicon glyphicon-tag"></span>
         <%= tag.escape("name") %>
         <span class="badge"><%= tag.escape("notes_count") %></span>
-      </a>
+      </div>
     </li>
   <% }) %>
 </ul>

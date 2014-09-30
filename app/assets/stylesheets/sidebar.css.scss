@@ -24,16 +24,26 @@
   margin-right: 5px;
 }
 
-.left-sidebar a {
-  color: black;
+.item {
+  cursor: pointer;
+  height: 30px;
+  vertical-align: middle;
+  padding: 0 10px;
 }
 
-.left-sidebar a:hover {
-  color: black;
+.item:hover {
+  background: #D0FFF4;
+}
+
+.active {
+  background: #D0FFF4;
 }
 
 .left-sidebar li {
   font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
 }
 
 .left-sidebar .badge {

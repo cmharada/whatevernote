@@ -8,17 +8,18 @@
     </button>
   </span>
 </header>
-<ul class="nav nav-pills nav-stacked notebook-index collapse in">
+<ul class="nav notebook-index collapse in">
   <li class="notebook" data-id="null">
-    <a href="javascript:void(0)" class="notebook-title">
-      All Notes
+    <div class="notebook-title item">
+      <span class="glyphicon glyphicon-folder-open"></span>All Notes
       <span class="badge"><%= allNotes.length %></span>
-    </a>
+    </div>
   </li>
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
-      <a href="javascript:void(0)" class="notebook-title">
+      <div class="notebook-title item">
         <div class="notebook-title-inner">
+          <span class="glyphicon glyphicon-folder-open"></span>
           <%= notebook.escape("title") %>
           <span class="badge"><%= notebook.escape("notes_count") %></span>
           <span class="show-notebook-options">
@@ -31,7 +32,7 @@
             <button class="btn delete-notebook">Delete</button>
           </div>
         </div>
-      </a>
+      </div>
     </li>
   <% }) %>
   <li>
