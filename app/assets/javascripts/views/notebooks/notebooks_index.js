@@ -70,21 +70,17 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   showEditForm: function(event) {
-    var id = $(event.currentTarget).parent(".notebook").data("id");
-    if (this.editView) {
-      this.removeSubview(".edit-notebook-form", this.editView);
-    }
+    var id = $(event.currentTarget).parents(".notebook").data("id");
     var notebook = this.collection.getOrFetch(id);
-    this.editView = new WhateverNote.Views.NotebookEdit({
+    var modalView = new WhateverNote.Modals.NotebookEdit({
       model: notebook
     });
-    this.addSubview(".edit-notebook-form", this.editView);
+    $("#modal-space").html(modalView.render().el);
   },
   
   deleteNotebook: function(event) {
     //TODO Ask For Confirmation
-    debugger;
-    var id = $(event.currentTarget).parent(".notebook").data("id");
+    var id = $(event.currentTarget).parents(".notebook").data("id");
     var notebook = this.collection.getOrFetch(id);
     notebook.destroy();
   },

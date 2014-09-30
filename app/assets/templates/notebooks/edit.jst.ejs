@@ -1,10 +1,27 @@
-<h4>Rename Notebook</h4>
-<form>
-  <label for="edit_notebook_name">Notebook Name</label>
-  <input type="text"
-    name="notebook[title]"
-    id="edit_notebook_name"
-    value="<%= notebook.escape("title") %>">
-  <input type="submit" value="Save">
-</form>
-<button class="btn cancel-edit-notebook">Cancel</button>
+<div class="bbm-modal__topbar">
+  <span class="bbm-modal__title">
+    Rename Notebook
+  </span>
+</div>
+<div class="bbm-modal__section">
+  <form role="form" class="edit-notebook-params">
+    <div class="form-group notebook-title">
+      <label for="notebook-title-form" class="control-label">
+        Title
+      </label>
+      <input name="notebook[title]"
+        id="notebook-title-form"
+        class="form-control"
+        value="<%= title %>">
+    </div>
+  </form>
+  <div class="error-space"></div>
+</div>
+<div class="bbm-modal__bottombar">
+  <a href="javascript:void(0)" class="close-modal bbm-button">
+    Close
+  </a>
+  <a href="javascript:void(0)" class="submit-edit-notebook bbm-button">
+    Rename Notebook
+  </a>
+</div>
