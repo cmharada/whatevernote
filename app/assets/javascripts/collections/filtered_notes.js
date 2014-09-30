@@ -73,7 +73,7 @@ WhateverNote.Collections.FilteredNotes = Backbone.Collection.extend({
   },
   
   _filterByTags: function(note) {
-    var noteTagIds = note.tags().plush("id");
+    var noteTagIds = note.tags().pluck("id");
     var hasAllTags = _.every(this.tagFilters, function(tagId) {
       return _.contains(noteTagIds, tagId);
     });
