@@ -1,7 +1,3 @@
-.left-sidebar {
-  border-right: thin solid #7D9992;
-}
-
 .left-sidebar header {
   height: 30px;
   line-height: 30px;
@@ -39,11 +35,11 @@
   background: #D0FFF4;
 }
 
-.left-sidebar li {
+.left-sidebar .nav li {
   font-size: 12px;
   height: 30px;
   line-height: 30px;
-  position: relative;
+  position: inherit;
 }
 
 .left-sidebar .badge {
@@ -53,11 +49,21 @@
 .show-notebook-options {
   float: right;
   font-size: 14px;
+}
+
+.show-notebook-options-button {
   display: none;
 }
 
-li:hover .show-notebook-options {
+li:hover .show-notebook-options-button {
   display: inline;
+}
+
+.notebook-menu {
+  position: absolute;
+  background: red;
+  display: block;
+  z-index: 9999;
 }
 
 //.drag-active {

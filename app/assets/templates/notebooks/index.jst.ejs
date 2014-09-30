@@ -18,19 +18,21 @@
   <% notebooks.each(function(notebook) { %>
     <li class="notebook" data-id="<%= notebook.id %>">
       <div class="notebook-title item">
-        <div class="notebook-title-inner dropdown">
+        <div class="notebook-title-inner">
           <span class="glyphicon glyphicon-folder-open"></span>
           <%= notebook.escape("title") %>
           <span class="badge"><%= notebook.escape("notes_count") %></span>
-          <span class="show-notebook-options dropdown-toggle" data-toggle="dropdown" id="dropdown<%= notebook.id %>">
-            <button class="btn btn-xxs">
-              <span class="caret"></span></span>
-            </button>
+          <span class="show-notebook-options">
+            <div class="show-notebook-options-button">
+              <button class="btn btn-xxs">
+                <span class="caret"></span></span>
+              </button>
+            </div>
+            <ul class="notebook-menu hidden">
+              <button class="btn edit-notebook">Edit</button>
+              <button class="btn delete-notebook">Delete</button>
+            </ul>
           </span>
-          <ul class="notebook-menu dropdown-menu" aria-labelledby="dropdown<%= notebook.id %>">
-            <button class="btn edit-notebook">Edit</button>
-            <button class="btn delete-notebook">Delete</button>
-          </ul>
         </div>
       </div>
     </li>

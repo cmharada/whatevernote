@@ -50,12 +50,18 @@ html, body {
   width: 250px;
 }
 
-.left-sidebar {
-  width: 230px;
+.sidebar-wrapper {
   position: absolute;
-  left: 0;
+  width: 230px;
   top: 0;
   bottom: 0;
+  left: 0;
+  border-right: thin solid #7D9992;
+}
+
+.left-sidebar {
+  width: 100%;
+  height: 100%;
   overflow: auto;
 }
 
@@ -63,6 +69,7 @@ html, body {
   position: absolute;
   left: 230px;
   height: 100%;
+  top: 1px;
   right: 0;
   border-top: thin solid #7D9992;
   overflow: auto;
