@@ -2,12 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-html, body {
-  height: 100%;
-}
-
 #main {
-  background-color: #EFFFF4;
   height: calc(100% - 32px);
 }
 
@@ -45,10 +40,15 @@ html, body {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+  width: 350px;
 }
 
 #search-bar-input {
   width: 250px;
+}
+
+.new-note {
+  font-family: georgia, serif;
 }
 
 .sidebar-wrapper {

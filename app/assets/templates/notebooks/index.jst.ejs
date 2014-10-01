@@ -13,6 +13,9 @@
     <div class="notebook-title item">
       <span class="glyphicon glyphicon-folder-open"></span>All Notes
       <span class="badge"><%= allNotes.length %></span>
+      <span class="arrow pulse">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+      </span>
     </div>
   </li>
   <% notebooks.each(function(notebook) { %>
@@ -21,15 +24,18 @@
         <span class="glyphicon glyphicon-folder-open"></span>
         <%= notebook.escape("title") %>
         <span class="badge"><%= notebook.escape("notes_count") %></span>
+        <span class="arrow pulse">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+        </span>
         <span class="show-options">
           <div class="show-options-button">
             <button class="btn btn-xxs">
               <span class="caret"></span></span>
             </button>
           </div>
-          <div class="nav options-menu hidden">
-            <button class="btn edit-notebook">Edit</button>
-            <button class="btn delete-notebook">Delete</button>
+          <div class="options-menu hidden">
+            <div class="edit-notebook item">Edit</div>
+            <div class="delete-notebook item">Delete</div>
           </div>
         </span>
       </div>
@@ -39,6 +45,9 @@
     <div class="item note-trash">
       <span class="glyphicon glyphicon-trash"></span>
       Trash
+      <span class="arrow pulse">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+      </span>
     </div>
   </li>
 </ul>

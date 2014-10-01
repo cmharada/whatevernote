@@ -8,15 +8,20 @@
 </head>
 <body>
   <header class="page-header">
-  <% if logged_in? %>
-    <span class="glyphicon glyphicon-user"></span>
-    Logged in as <%= current_user.username %>
-    <%= button_to "Sign Out", session_url, method: :delete %>
-  <% else %>
-    <a href="/">
-      <img src="/images/WhateverNote-logo-30.png">
-    </a>
-  <% end %>
+    <div class="page-header-inner">
+      <% if logged_in? %>
+        <span class="glyphicon glyphicon-user"></span>
+        Logged in as <%= current_user.username %>
+        <%= button_to "Sign Out", session_url, {
+          method: :delete,
+          class: "btn btn-signout"
+        } %>
+      <% else %>
+        <a href="/">
+          <img src="/images/WhateverNote-logo-30.png">
+        </a>
+      <% end %>
+    </div>
   </header>
   <% if flash[:errors] %>
     <ul>

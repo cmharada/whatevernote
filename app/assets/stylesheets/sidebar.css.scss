@@ -54,23 +54,34 @@
 }
 
 .show-options-button {
-  display: none;
+  visibility: hidden;
 }
 
 li:hover .show-options-button {
-  display: inline;
+  visibility: visible;
 }
 
 .options-menu {
   position: absolute;
   display: block;
-  background: white;
+  border: thin solid #7D9992;
+  background: #EFFFF4;
   z-index: 1;
+  list-style: none;
+  padding-left: 0;
 }
 
-//.drag-active {
-//  background-color: #91B2AB;
-//}
+.options-menu .item {
+  display: relative;
+}
+
+.arrow {
+  visibility: hidden;
+  float:right;
+}
+.drag-active .arrow {
+  visibility: visible;
+}
 
 .drag-hover {
   background: -webkit-linear-gradient(left,#EFFFF4,#EFFFF4,#91B2AB); /*Safari 5.1-6*/
