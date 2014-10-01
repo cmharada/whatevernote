@@ -1,9 +1,9 @@
 <% if sign_up %>
   <% action_url = users_url %>
-  <% button_name = "Log In" %>
+  <% button_name = "Sign Up" %>
 <% else %>
   <% action_url = session_url %>
-  <% button_name = "Sign Up" %>
+  <% button_name = "Log In" %>
 <% end %>
 
 <form action="<%= action_url %>" method="POST">

@@ -13,8 +13,19 @@
   background: #FAFFFD;
 }
 
-.notes-index-title {
+.notes-index-header {
+  padding-left: 10px;
   border-bottom: thin solid #7D9992;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+}
+
+.inner-notes-index-header {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: 100%;
 }
 
 .middle-column li {
