@@ -31,6 +31,11 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   onRender: function() {
+    this.setUpNotebookDroppable();
+    this.setUpTrashDroppable();
+  },
+  
+  setUpNotebookDroppable: function() {
     var notebookIndex = this;
     this.$(".notebook").droppable({
       accept: ".note-preview",
@@ -49,6 +54,26 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
           error: function(model, response) {
             //TODO ERROR HANDLING
             alert("ERROR REASSIGNING NOTE TO NOTEBOOK");
+          }
+        });
+        $(ui.helper).remove();
+      }
+    });
+  },
+  
+  setUpTrashDroppable: function() {
+    this.$(".note-trash").droppable({
+      accept: ".note-preview",
+      activeClass: "drag-active",
+      hoverClass: "drag-hover",
+      tolerance: "pointer",
+      drop: function(event, ui) {
+        var draggedNoteId = ui.draggable.data("id");
+        var note = WhateverNote.notes.get(draggedNoteId);
+        note.destroy({
+          success: function() {
+            WhateverNote.tags.fetch();
+            WhateverNote.notebooks.fetch();
           }
         });
         $(ui.helper).remove();

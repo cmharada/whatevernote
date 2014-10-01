@@ -2,7 +2,12 @@
 
 <ul>
   <% tags.each(function(tag) { %>
-    <li><%= tag.escape("name") %></li>
+    <li class="note-tags">
+      <%= tag.escape("name") %>
+      <a href="javascript:void(0)" class="remove-tag">&times;</a>
+    </li>
   <% }) %>
-  <li><input class="new-tag" type="text" value="+"></li>
+  <li class="note-tags">
+    <input class="new-tag-note" type="text" size="1" value="+">
+  </li>
 </ul>

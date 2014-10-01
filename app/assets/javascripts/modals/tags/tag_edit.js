@@ -1,6 +1,6 @@
 /*global WhateverNote JST */
 WhateverNote.Modals.TagEdit = Backbone.Modal.extend({
-  template: JST["tags/new"],
+  template: JST["tags/edit"],
   cancelEl: ".close-modal",
   submitEl: ".submit-edit-tag",
   

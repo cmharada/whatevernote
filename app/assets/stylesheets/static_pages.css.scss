@@ -83,3 +83,22 @@ html, body {
   overflow: auto;
   padding: 0 10px;
 }
+
+.note-tags {
+  display: inline-block;
+  background: #91B2AB;
+  color: white;
+  border-radius: 12px;
+  padding: 3px 10px;
+  line-height: 11px;
+  border: thin solid #7D9992;
+}
+
+.new-tag-note {
+  max-width: 100px;
+  line-height: 11px;
+  font-size: 11px;
+  background-color: transparent;
+  border: 0;
+  display: inline;
+}

@@ -6,8 +6,9 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
   template: JST['tags/tags_note'],
   
   events: {
-    "focus .new-tag": "handleFocus",
-    "blur .new-tag": "handleUnfocus"
+    "focus .new-tag-note": "handleFocus",
+    "blur .new-tag-note": "handleUnfocus",
+    "keyup .new-tag-note": "growInput"
   },
   
   initialize: function(opts) {
@@ -24,15 +25,23 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
     return this;
   },
   
+  growInput: function() {
+    var $input = this.$('.new-tag-note');
+    var size = parseInt($input.attr('size'), 10); 
+    var chars = $input.val().length; 
+    if(chars >= size) {
+      $input.attr('size', chars);
+    }
+  },
+  
   handleFocus: function() {
-    this.$(".new-tag").val("");
+    this.$(".new-tag-note").val("");
   },
   
   handleUnfocus: function() {
     var that = this;
-    var newTagName = this.$(".new-tag").val();
+    var newTagName = this.$(".new-tag-note").val();
     if (newTagName) {
-      console.log(newTagName);
       var match = WhateverNote.tags.find(function(tag) {
         return tag.get("name") === newTagName;
       });
@@ -54,6 +63,7 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
         });
       }
     }
-    this.$(".new-tag").val("+");
+    this.$(".new-tag-note").val("+");
+    this.$(".new-tag-note").attr("size", 1);
   }
 });
