@@ -6,7 +6,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   template: JST["notes/show"],
   
   events: {
-    "submit form": "updateNote"
+    "submit form": "updateNote",
+    "change select": "updateNotebook"
   },
   
   initialize: function() {
@@ -52,25 +53,33 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
           { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] }
       ]
     });
-    this.editor = CKEDITOR.instances["editable"];
+  },
+  
+  updateNotebook: function(event) {
+    var newNotebookId = $(event.currentTarget).val();
+    this.model.set({ notebook_id: newNotebookId });
+    this.model.save({}, {
+      success: function() {
+        WhateverNote.notebooks.fetch();
+      },
+      error: function(model, response) {
+        //TODO: Error handling
+      }
+    });
   },
   
   updateNote: function(event) {
     event.preventDefault();
 
-    var instance;
-    for ( instance in CKEDITOR.instances ) {
+    for ( var instance in CKEDITOR.instances ) {
       CKEDITOR.instances[instance].updateElement();
     }
     
     var params = $(event.currentTarget).serializeJSON();
     this.model.set(params);
     this.model.save({}, {
-      success: function() {
-        WhateverNote.notebooks.fetch();
-      },
       error: function(model, response) {
-        /////////////////////////
+        //TODO Error Handling
         alert("ERROR SAVING NOTE");
       }
     });

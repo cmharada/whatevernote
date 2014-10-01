@@ -1,27 +1,29 @@
-<div class="tags"></div>
-
-<form role="form">
-  <div class="form-group">
-    <select name="note[notebook_id]" class="form-control">
-      <option value="null">
-        No Notebook
+<div class="note-show-header">
+  <select name="note[notebook_id]" class="note-notebook-select">
+    <option value="null">
+      No Notebook
+    </option>
+    <% notebooks.each(function (notebook) { %>
+      <option value="<%= notebook.id %>">
+        <%= notebook.escape("title") %>
       </option>
-      <% notebooks.each(function (notebook) { %>
-        <option value="<%= notebook.id %>">
-          <%= notebook.escape("title") %>
-        </option>
-      <% }) %>
-    </select>
-  </div>
-  <div class="form-group">
-    <input type="text" name="note[title]" class="form-control input-lg" value="<%= note.escape("title") %>">
-  </div>
-  <div class="form-group">
-    <textarea name="note[contents]"
-      class="hidden"
-      rows=10><%= note.escape("contents") %></textarea>
-  </div>
-  <div class="form_group">
-    <input type="submit" value="Save">
-  </div>
-</form>
+    <% }) %>
+  </select>
+  <div class="tags"></div>
+</div>
+
+<div class="note-show-edit-area">
+  <form role="form">
+    <div class="form-group">
+      <input type="text" name="note[title]" class="form-control input-lg" value="<%= note.escape("title") %>">
+    </div>
+    <div class="form-group">
+      <textarea name="note[contents]"
+        class="hidden"
+        rows=10><%= note.escape("contents") %></textarea>
+    </div>
+    <div class="form_group">
+      <input type="submit" value="Save">
+    </div>
+  </form>
+</div>

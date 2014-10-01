@@ -70,7 +70,7 @@ html, body {
   position: absolute;
   left: 230px;
   height: 100%;
-  top: 1px;
+  top: 0;
   right: 0;
   overflow: auto;
 }
@@ -81,7 +81,40 @@ html, body {
   height: 100%;
   right: 0;
   overflow: auto;
+}
+
+.note-show-header {
+  background: #D0FFF4;
+  padding: 5px 10px 0 10px;
+  border-bottom: thin solid #7D9992;
+  height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+}
+
+.note-show-header div {
+  display: inline-block;
+}
+
+.note-notebook-select {
+  display: inline block;
+  background: transparent;
+  border: none;
+}
+
+.tags {
+  height: 35px;
+}
+
+.note-show-edit-area {
   padding: 0 10px;
+}
+
+.note-tag-list {
+  list-style: none;
+  padding-left: 0;
+  display: inline-block;
 }
 
 .note-tags {
