@@ -5,6 +5,7 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
   template: JST['main/main'],
   
   events: {
+    "click .new-note": "newNote",
     "submit #search-bar": "handleSearch"
   },
   
@@ -52,5 +53,21 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
     event.preventDefault();
     var searchString = this.$("#search-bar-input").val();
     WhateverNote.filteredNotes.setTextFilter(searchString);
-  }
+  },
+  
+  newNote: function(events) {
+    var newNote = new WhateverNote.Models.Note({
+      title: "Untitled"
+    });
+    
+    newNote.save({}, {
+      success: function() {
+        WhateverNote.notes.add(newNote);
+      }, 
+      error: function(model, response) {
+        // SHOW ERRORS
+        alert("ERROR CREATING NOTE");
+      }
+    });
+  },
 });

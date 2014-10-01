@@ -6,7 +6,6 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   template: JST["notes/index"],
   
   events: {
-    "click .new-note": "newNote",
     "click .note-preview": "showNote",
     "click .edit-note": "editNote",
     "click .delete-note": "deleteNote"
@@ -38,22 +37,6 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
   
   showNewForm: function() {
     this.$(".new-note-form").removeClass("hidden");
-  },
-  
-  newNote: function(events) {
-    var newNote = new WhateverNote.Models.Note({
-      title: "Untitled"
-    });
-    
-    newNote.save({}, {
-      success: function() {
-        WhateverNote.notes.add(newNote);
-      }, 
-      error: function(model, response) {
-        // SHOW ERRORS
-        alert("ERROR CREATING NOTE");
-      }
-    });
   },
   
   showNote: function(event) {

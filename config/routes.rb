@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :notebooks, only: [:create, :update, :destroy, :index, :show]
     resources :notes, only: [:create, :update, :destroy, :index, :show]
     post 'notes/:id/assign(.:format)', to: "notes#assign"
+    post 'notes/:id/unassign(.:format)', to: "notes#unassign"
     resources :tags, only: [:create, :update, :destroy, :index, :show]
   end
 end

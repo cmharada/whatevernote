@@ -44,6 +44,13 @@ class Api::NotesController < ApplicationController
     render :show
   end
   
+  def unassign
+    @note = current_user.notes.find(params[:id])
+    tag = current_user.tags.find(params[:tag_id])
+    @note.tags.delete tag
+    render :show
+  end
+  
   private
   
   def note_params

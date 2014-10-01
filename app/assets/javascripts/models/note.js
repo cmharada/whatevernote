@@ -33,5 +33,18 @@ WhateverNote.Models.Note = Backbone.Model.extend({
     _.extend(options, opts);
     
     return Backbone.sync("create", this, options);
+  },
+  
+  unassign: function(tagId, opts) {
+    var options = {
+      url: this.urlRoot + "/" + this.id + "/unassign",
+      type: "POST",
+      attrs: {
+        tag_id: tagId
+      }
+    };
+    _.extend(options, opts);
+    
+    return Backbone.sync("create", this, options);
   }
 });

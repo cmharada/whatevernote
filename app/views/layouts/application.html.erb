@@ -7,13 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="page-header">
   <% if logged_in? %>
-    <header class="page-header">
-      <span class="glyphicon glyphicon-user"></span>
-      Logged in as <%= current_user.username %>
-      <%= button_to "Sign Out", session_url, method: :delete %>
-    </header>
+    <span class="glyphicon glyphicon-user"></span>
+    Logged in as <%= current_user.username %>
+    <%= button_to "Sign Out", session_url, method: :delete %>
+  <% else %>
+    <a href="/">
+      <img src="/images/WhateverNote-logo-30.png">
+    </a>
   <% end %>
+  </header>
   <% if flash[:errors] %>
     <ul>
       <% flash[:errors].each do |error| %>
@@ -24,5 +28,6 @@
 
 <%= yield %>
 
+<%= yield :javascript %>
 </body>
 </html>

@@ -6,9 +6,10 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
   template: JST['tags/tags_note'],
   
   events: {
-    "focus .new-tag-note": "handleFocus",
+    "click .new-tag-note-start": "handleNewInput",
     "blur .new-tag-note": "handleUnfocus",
-    "keyup .new-tag-note": "growInput"
+    "keyup .new-tag-note": "handleInput",
+    "click .remove-tag": "unassignTag"
   },
   
   initialize: function(opts) {
@@ -25,6 +26,15 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
     return this;
   },
   
+  handleInput: function(event) {
+    debugger;
+    if (event.keyCode === 13) {
+      this.$(".new-tag-note").blur();
+    } else {
+      this.growInput();
+    }
+  },
+  
   growInput: function() {
     var $input = this.$('.new-tag-note');
     var size = parseInt($input.attr('size'), 10); 
@@ -34,8 +44,10 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
     }
   },
   
-  handleFocus: function() {
-    this.$(".new-tag-note").val("");
+  handleNewInput: function() {
+    this.$(".new-tag-note-start").addClass("hidden");
+    this.$(".new-tag-note").removeClass("hidden");
+    this.$(".new-tag-note").focus();
   },
   
   handleUnfocus: function() {
@@ -46,15 +58,22 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
         return tag.get("name") === newTagName;
       });
       if (match) {
-        that.note.assign(match.id);
+        that.note.assign(match.id, {
+          success: function() {
+            WhateverNote.tags.fetch();
+            that.collection.add(match);
+          }
+        });
       } else {
         var tag = new WhateverNote.Models.Tag({ name: newTagName });
         tag.save({}, {
           success: function() {
-            that.note.assign(tag.id);
-            WhateverNote.tags.fetch();
-            that.note.fetch();
-            that.collection.add(tag);
+            that.note.assign(tag.id, {
+              success: function() {
+                WhateverNote.tags.fetch();
+                that.collection.add(tag);
+              }
+            });
           },
           error: function() {
             //TODO Error handling
@@ -63,7 +82,20 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
         });
       }
     }
-    this.$(".new-tag-note").val("+");
+    this.$(".new-tag-note").val("");
     this.$(".new-tag-note").attr("size", 1);
+    this.$(".new-tag-note").addClass("hidden");
+    this.$(".new-tag-note-start").removeClass("hidden");
+  },
+  
+  unassignTag: function(event) {
+    var that = this;
+    var tagId = $(event.currentTarget).parent(".note-tags").data("id");
+    this.note.unassign(tagId, {
+      success: function() {
+        WhateverNote.tags.fetch();
+        that.collection.remove(tagId);
+      }
+    });
   }
 });

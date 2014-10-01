@@ -7,8 +7,10 @@
 
 <button class="btn btn-primary guest_button">Login As Guest</button>
 
-<script>
+<% content_for :javascript do %>
+<script type="text/javascript">
   $(document).ready(function() {
     setupGuestLogin($(".guest_button"));
   });
 </script>
+<% end %>
