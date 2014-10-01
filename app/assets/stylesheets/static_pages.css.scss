@@ -24,6 +24,7 @@ html, body {
   height: 50px;
   line-height: 50px;
   position: relative;
+  border-bottom: thin solid #7D9992;
 }
 
 .workspace-header-img {
@@ -71,7 +72,6 @@ html, body {
   height: 100%;
   top: 1px;
   right: 0;
-  border-top: thin solid #7D9992;
   overflow: auto;
 }
 
