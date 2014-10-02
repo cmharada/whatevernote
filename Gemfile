@@ -5,6 +5,8 @@ gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'ckeditor_rails'
+gem 'thin'
+gem 'lol_dba'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
