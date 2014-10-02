@@ -1,8 +1,10 @@
 <div id="main">
 </div>
 
-<script>
-  $(document).ready(function(){
-    WhateverNote.initialize();
-  });
-</script>
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      WhateverNote.initialize();
+    });
+  </script>
+<% end %>
