@@ -42,19 +42,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       CKEDITOR.remove(CKEDITOR.instances["note[contents]"]);
     }
     // this.$(".cke").remove();
-    CKEDITOR.replace("note[contents]", {
-      removePlugins: 'elementspath,resize',
-      toolbarCanCollapse: 'true',
-      toolbar: [
-          { name: 'textstyle', items: ['Font', 'FontSize' ]},
-          { name: 'basicstyles', items: [ 'TextColor', 'Bold', 'Italic', 'Underline', 'Strike', 'Superscript', 'Subscript', 'RemoveFormat' ] },
-          { name: 'align', items: [ 'Indent', 'Outdent', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-          { name: 'lists', items: [ 'NumberedList', 'BulletedList' ]},
-          { name: 'media', items: [ 'Checkbox', 'Image', 'Table', 'HorizontalRule'] },
-          { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] },
-          { name: 'youtube', items: [ 'youtube' ] }
-      ]
-    });
+    CKEDITOR.replace("note[contents]");
   },
   
   updateNotebook: function(event) {
