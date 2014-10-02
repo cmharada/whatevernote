@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require ckeditor-jquery
+//= require_tree ./ckeditor
 //= require bootstrap
 //= require underscore
 //= require backbone

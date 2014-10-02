@@ -37,11 +37,12 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   
   onRender: function() {
     if (CKEDITOR.instances["note[contents]"]) {
-      delete CKEDITOR.instances["note[contents]"];
+      // delete CKEDITOR.instances["note[contents]"];
+      CKEDITOR.instances["note[contents]"].removeAllListeners();
+      CKEDITOR.remove(CKEDITOR.instances["note[contents]"]);
     }
-    this.$(".cke").remove();
+    // this.$(".cke").remove();
     CKEDITOR.replace("note[contents]", {
-      customConfig: '',
       removePlugins: 'elementspath,resize',
       toolbarCanCollapse: 'true',
       toolbar: [
@@ -50,7 +51,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
           { name: 'align', items: [ 'Indent', 'Outdent', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
           { name: 'lists', items: [ 'NumberedList', 'BulletedList' ]},
           { name: 'media', items: [ 'Checkbox', 'Image', 'Table', 'HorizontalRule'] },
-          { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] }
+          { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo' ] },
+          { name: 'youtube', items: [ 'youtube' ] }
       ]
     });
   },
