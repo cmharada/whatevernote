@@ -27,7 +27,8 @@ html {
 
 body {
   height: 100%;
-  background: #EFFFF4;
+  background-image: url("/images/pencil_and_paper.jpg");
+  background-size: cover;
 }
 
 .page-header {
@@ -59,19 +60,25 @@ body {
 }
 
 .splash {
-  background-image: url("/images/pencil_and_paper.jpg");
-  background-size: cover;
   height: calc(100% - 32px);
 }
 
 .logo {
   background: #EFFFF4;
-  margin: 50px auto;
+  margin: 30px auto;
   width: 500px;
+  padding: 10px;
+}
 
+.text-box {
+  background: #EFFFF4;
+  padding: 10px 30px;
+}
+
+.card-shadow {
   border-radius: 25px;
   box-shadow:
-        0px 1px 1px rgba(0,0,0,0.65), /* The top layer shadow */
+        0px 0px 1px rgba(0,0,0,0.65), /* The top layer shadow */
         10px 10px 0 #EFFFF4, /* The second layer */
         10px 10px 1px rgba(0,0,0,0.65), /* The second layer shadow */
         20px 20px 0 #EFFFF4, /* The third layer */

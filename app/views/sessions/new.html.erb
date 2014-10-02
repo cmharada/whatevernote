@@ -1,11 +1,24 @@
-<h1>Log In</h1>
-
-<%= render partial: "shared/user_form", locals: {
-  user: @user,
-  sign_up: false
-} %>
-
-<button class="btn btn-primary guest_button">Login As Guest</button>
+<div class="splash container-fluid">
+  <div class="text-center logo card-shadow">
+    <img src="/images/WhateverNote-logo.png">
+    <p>The online organizational tool that lets you write down whatever you feel like writing</p>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <div class="text-box card-shadow">
+        <h3>Sign In
+          <button class="btn btn-default guest_button pull-right">
+            Login As Guest
+          </button>
+        </h3>
+        <%= render partial: "shared/user_form", locals: {
+          user: @user,
+          sign_up: false
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% content_for :javascript do %>
 <script type="text/javascript">

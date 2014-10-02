@@ -1,6 +1,17 @@
-<h1>Sign Up</h1>
-
-<%= render partial: "shared/user_form", locals: {
-  user: @user,
-  sign_up: true
-} %>
+<div class="splash container-fluid">
+  <div class="text-center logo card-shadow">
+    <img src="/images/WhateverNote-logo.png">
+    <p>The online organizational tool that lets you write down whatever you feel like writing</p>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+      <div class="text-box card-shadow">
+        <h3>Sign Up</h3>
+        <%= render partial: "shared/user_form", locals: {
+          user: @user,
+          sign_up: true
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
