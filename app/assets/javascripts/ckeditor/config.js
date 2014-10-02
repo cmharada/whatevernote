@@ -1,6 +1,8 @@
 CKEDITOR.config.removePlugins = 'elementspath,resize';
 CKEDITOR.config.toolbarCanCollapse = 'true';
 CKEDITOR.config.language = 'en';
+CKEDITOR.config.width = "100%";
+CKEDITOR.config.height = "0";
 CKEDITOR.config.skin = 'bootstrapck';
 CKEDITOR.config.toolbar = [
     { name: 'textstyle', items: ['Font', 'FontSize' ]},

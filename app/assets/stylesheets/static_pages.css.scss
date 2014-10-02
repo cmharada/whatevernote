@@ -128,7 +128,7 @@
   border: thin solid #7D9992;
 }
 
-.note-tags a{
+.note-tags a {
   color: inherit;
   text-decoration: none;
 }
@@ -140,4 +140,10 @@
   background-color: transparent;
   border: 0;
   display: inline;
+}
+
+.editor-wrapper {
+  width: calc(100% - 10px);
+  height: 600px;
+  background: white;
 }

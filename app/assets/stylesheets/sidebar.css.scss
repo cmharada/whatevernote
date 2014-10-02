@@ -79,13 +79,73 @@ li:hover .show-options-button {
   visibility: hidden;
   float:right;
 }
+
 .drag-active .arrow {
   visibility: visible;
+	animation-name: pulse;
+	-webkit-animation-name: pulse;	
+
+	animation-duration: 1.0s;	
+	-webkit-animation-duration: 1.0s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
 }
 
-.drag-hover {
-  background: -webkit-linear-gradient(left,#EFFFF4,#EFFFF4,#91B2AB); /*Safari 5.1-6*/
-  background: -o-linear-gradient(right,#EFFFF4,#EFFFF4,#91B2AB); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(right,#EFFFF4,#EFFFF4,#91B2AB); /*Fx 3.6-15*/
-  background: linear-gradient(to right, #EFFFF4,#EFFFF4,#91B2AB); /*Standard*/
+.drag-active.drag-hover .arrow {
+	animation-name: big-pulse;
+	-webkit-animation-name: big-pulse;
+}
+
+@keyframes pulse {
+	0% {
+		transform: translateX(10%);
+	}
+	50% {
+		transform: translatex(-50%);
+	}	
+	100% {
+		transform: translateX(10%);
+	}			
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: translateX(10%);	
+	}
+	50% {
+		-webkit-transform: translateX(-50%);
+	}	
+	100% {
+		-webkit-transform: translateX(10%);	
+	}			
+}
+
+@keyframes big-pulse {
+	0% {
+		transform: translateX(-100%);
+	}
+	50% {
+		transform: translatex(-250%);
+	}	
+	100% {
+		transform: translateX(-100%);
+	}			
+}
+
+@-webkit-keyframes big-pulse {
+	0% {
+		-webkit-transform: translateX(-100%);	
+	}
+	50% {
+		-webkit-transform: translateX(-250%);
+	}	
+	100% {
+		-webkit-transform: translateX(-100%);	
+	}			
+}
+
+.bbm-modal__section {
+  background: #EFFFF4;
+  padding: 10px;
 }
