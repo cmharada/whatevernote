@@ -34,10 +34,10 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
   initializeNoteIndex: function() {
     WhateverNote.notes.fetch();
 
-    var indexView = new WhateverNote.Views.NotesIndex({
+    this.noteIndex = new WhateverNote.Views.NotesIndex({
       collection: WhateverNote.filteredNotes
     });
-    this.addSubview(".main-space", indexView);
+    this.addSubview(".main-space", this.noteIndex);
   },
 
   render: function() {
@@ -56,18 +56,6 @@ WhateverNote.Views.Main = Backbone.CompositeView.extend({
   },
   
   newNote: function(events) {
-    var newNote = new WhateverNote.Models.Note({
-      title: "Untitled"
-    });
-    
-    newNote.save({}, {
-      success: function() {
-        WhateverNote.notes.add(newNote);
-      }, 
-      error: function(model, response) {
-        // SHOW ERRORS
-        alert("ERROR CREATING NOTE");
-      }
-    });
+    this.noteIndex.newNote();
   },
 });
