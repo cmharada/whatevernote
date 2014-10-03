@@ -13,8 +13,8 @@
  *= require jquery-ui
  *= require backbone.modal
  *= require backbone.modal.theme
+ *= require_directory .
  *= require_self
- *= require_tree .
  */
 
 @import "bootstrap-sprockets";
