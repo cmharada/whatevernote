@@ -3,7 +3,6 @@ CKEDITOR.config.toolbarCanCollapse = 'true';
 CKEDITOR.config.language = 'en';
 CKEDITOR.config.width = "100%";
 CKEDITOR.config.height = "0";
-CKEDITOR.config.skin = 'bootstrapck';
 CKEDITOR.config.toolbar = [
     { name: 'textstyle', items: ['Font', 'FontSize' ]},
     { name: 'basicstyles', items: [ 'TextColor', 'Bold', 'Italic', 'Underline', 'Strike', 'Superscript', 'Subscript', 'RemoveFormat' ] },
