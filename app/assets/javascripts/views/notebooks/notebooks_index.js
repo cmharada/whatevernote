@@ -14,6 +14,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(WhateverNote.notes, "sync add remove", this.render);
   },
 
   render: function() {
