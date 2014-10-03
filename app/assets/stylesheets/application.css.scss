@@ -13,13 +13,14 @@
  *= require jquery-ui
  *= require backbone.modal
  *= require backbone.modal.theme
- *= require_directory .
  *= require_self
+ *= require static_pages
+ *= require sidebar
+ *= require middle_column
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "ckeditor/skins/bootstrapck/scss/components/editor";
 
 html {
   height: 100%;
