@@ -11,8 +11,6 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   initialize: function() {
-    this.listenTo(this.model, "change:notebook_id change:tags", this.render);
-    
     var tagsView = new WhateverNote.Views.TagsNote({
       collection: this.model.tags(),
       parentNote: this.model
@@ -95,8 +93,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   statusLoading: function() {
-    this.$(".status").removeClass("fadeOut");
     this.$(".status").html("<span class='fa fa-spin fa-spinner'>");
+    this.$(".status").removeClass("fadeOut");
   },
   
   statusSuccess: function() {
