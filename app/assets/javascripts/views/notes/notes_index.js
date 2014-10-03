@@ -69,12 +69,5 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
       model: note
     });
     this.addSubview(".show-area", this.showView);
-  },
-  
-  deleteNote: function() {
-    //TODO: Ask for confirmation
-    var id = $(event.target).parent("li").data("id");
-    var note = WhateverNote.notes.get(id);
-    note.destroy();
   }
 });

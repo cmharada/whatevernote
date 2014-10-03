@@ -133,6 +133,11 @@
   text-decoration: none;
 }
 
+.note-tags a:hover {
+  color: red;
+  text-decoration: none;
+}
+
 .new-tag-note {
   max-width: 100px;
   line-height: 11px;
@@ -140,6 +145,10 @@
   background-color: transparent;
   border: 0;
   display: inline;
+}
+
+.new-tag-note-start {
+  cursor: pointer;
 }
 
 .editor-wrapper {
