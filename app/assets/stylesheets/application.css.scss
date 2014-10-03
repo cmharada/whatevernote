@@ -13,6 +13,7 @@
  *= require jquery-ui
  *= require backbone.modal
  *= require backbone.modal.theme
+ *= require_tree ../javascripts/ckeditor/skins/bootstrapck
  *= require_tree .
  *= require_self
  */
@@ -54,12 +55,17 @@ body {
   padding: 0 10px;
 }
 
+.signed-out-buttons {
+  float: right;
+}
+
 .modal-content form {
   padding: 0 10px;
 }
 
 .splash {
   height: calc(100% - 32px);
+  padding: 0 60px;
 }
 
 .logo {
@@ -88,6 +94,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   position: relative;
 }
+
 .paper-shadow:before, .paper-shadow:after {
   content: "";
   height: 98%;
@@ -112,6 +119,10 @@ body {
   transform: rotate(2.4deg);
 }
 
+.big-glyph {
+  font-size: 50px;
+  text-align: center;
+}
 
 .btn-signout {
   background: white;

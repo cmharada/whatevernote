@@ -19,6 +19,14 @@
         <a href="/">
           <img src="/images/WhateverNote-logo-30.png">
         </a>
+        <div class="signed-out-buttons">
+          <%= link_to "Sign Up", new_user_url, {
+            class: "btn btn-success btn-xs"
+          } %>
+          <%= link_to "Sign In", new_session_url, {
+            class: "btn btn-primary btn-xs"
+          } %>
+        </div>
       <% end %>
     </div>
   </header>

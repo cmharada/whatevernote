@@ -5,45 +5,75 @@
   </div>
   
   <div class="row">
-    <div class="col-xs-3 col-xs-offset-2">
-      <div class="text-box paper-shadow">
+    <div class="col-xs-3">
+      <div class="text-box paper-shadow text-center">
+        <span class="big-glyph text-warning">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </span>
+        <h5>Write</h5>
+        <p>
+          Write whatever you want.  WhateverNote will store your notes, letting
+          you access them from anywhere with an internet connection.
+        </p>
       </div>
     </div>
-    <div class="col-xs-3 col-xs-offset-2">
-      <div class="text-box paper-shadow">
+    <div class="col-xs-4 col-xs-offset-1">
+      <div class="text-box paper-shadow text-center">
+        <h3>Get Started</h3>
+        <button class="btn btn-success btn-lg">
+          Guest Login
+        </button>
+        <p>
+          Click the button below to sign up for free. Want to check out our 
+          features before you sign up? Click the giant Guest Login button to
+          see what WhateverNote is all about.
+        </p>
+        <%= link_to "Sign Up", new_user_url, {
+          class: "btn btn-primary"
+        } %>
+      </div>
+    </div>
+    <div class="col-xs-3 col-xs-offset-1">
+      <div class="text-box paper-shadow text-center">
+        <span class="big-glyph text-primary">
+          <span class="glyphicon glyphicon-search"></span>
+        </span>
+        <h5>Search</h5>
+        <p>
+          Having trouble finding something you wrote? WhateverNote has a search
+          function to let you go find whatever it was you're looking for.
+        </p>
       </div>
     </div>
   </div>
   <br>
   <div class="row">
-    <div class="col-xs-3">
-      <div class="text-box paper-shadow">
+    <div class="col-xs-3 col-xs-offset-2">
+      <div class="text-box paper-shadow text-center">
+        <span class="big-glyph text-danger">
+          <span class="glyphicon glyphicon-tag"></span>
+        </span>
+        <h5>Organize</h5>
+        <p>
+          Don't let your notes stack up.  WhateverNote has a notebook system so
+          you can sort your notes. Not good enough? Try our robust tagging 
+          system.
+        </p>
       </div>
     </div>
-    <div class="col-xs-4 col-xs-offset-1">
-      <div class="text-box paper-shadow">
-        <button class="btn btn-primary btn-lg">
-          Get Started
-        </button>
-      </div>
-    </div>
-    <div class="col-xs-3 col-xs-offset-1">
-      <div class="text-box paper-shadow">
+    <div class="col-xs-3 col-xs-offset-2">
+      <div class="text-box paper-shadow text-center">
+        <span class="big-glyph text-success">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </span>
+        <h5>And More!</h5>
+        <p>
+          Don't just write. With WhateverNote, you can write whatever you want.
+          Lists? Tables? Images? Go ahead.
+        </p>
       </div>
     </div>
   </div>
-  <br><br>
-  <div class="text-box card-shadow">
-    <button class="btn btn-primary btn-lg"
-      data-toggle="modal"
-      data-target="#sign-in-modal">
-      Sign In
-    </button>
-    <%= link_to "Sign Up", new_user_url %>
-    <%= link_to "Sign In", new_session_url %>
-  </div>
-  
-  <%= render partial: "static_pages/modal" %>
 </div>
 
 <% content_for :javascript do %>
