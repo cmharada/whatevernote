@@ -32,8 +32,7 @@ WhateverNote.Modals.NotebookNew = Backbone.Modal.extend({
         WhateverNote.notebooks.add(newNotebook);
       },
       error: function(model, response) {
-        //TODO SHOW ERRORS
-        alert("ERROR MAKING NEW NOTEBOOK");
+        alert(response);
       }
     });
   }

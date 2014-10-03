@@ -75,9 +75,8 @@ WhateverNote.Views.TagsNote = Backbone.View.extend({
               }
             });
           },
-          error: function() {
-            //TODO Error handling
-            console.log("ERROR CREATING TAG")
+          error: function(model, response) {
+            alert(response);
           }
         });
       }

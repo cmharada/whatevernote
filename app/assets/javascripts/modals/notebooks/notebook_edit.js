@@ -27,11 +27,8 @@ WhateverNote.Modals.NotebookEdit = Backbone.Modal.extend({
     var params = this.$(".edit-notebook-params").serializeJSON();
     this.model.set(params);
     this.model.save({
-      success: function() {
-        //TODO: Handle success
-      },
       error: function(model, response) {
-        //TODO: Handle failure
+        alert(response);
       }
     });
   }

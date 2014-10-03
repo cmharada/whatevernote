@@ -32,8 +32,7 @@ WhateverNote.Modals.TagNew = Backbone.Modal.extend({
         WhateverNote.tags.add(newTag);
       },
       error: function(model, response) {
-        //TODO SHOW ERRORS
-        alert("ERROR MAKING NEW TAG");
+        alert(response);
       }
     });
   }

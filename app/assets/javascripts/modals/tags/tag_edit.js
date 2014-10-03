@@ -29,12 +29,9 @@ WhateverNote.Modals.TagEdit = Backbone.Modal.extend({
     this.model.set(params);
     
     this.model.save({}, {
-      success: function() {
-        //TODO HANDLE SUCCESS
-      },
+
       error: function(model, response) {
-        //TODO SHOW ERRORS
-        alert("ERROR UPDATING TAG");
+        alert(response);
       }
     });
   }

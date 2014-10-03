@@ -64,7 +64,6 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
         WhateverNote.notebooks.fetch();
       },
       error: function(model, response) {
-        //TODO: Error handling
         that.statusError(response);
       }
     });
@@ -103,7 +102,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   statusError: function(errors) {
-    this.$(".status").html("<span class='fa fa-thumbs-o-down text-danger'>"
-      + "</span>" + errors);
+    this.$(".status").html("<span class='fa fa-thumbs-o-down text-danger'>" +
+       "</span>" + errors);
   }
 });

@@ -52,8 +52,7 @@ WhateverNote.Views.NotebooksIndex = Backbone.CompositeView.extend({
             notebookIndex.collection.fetch();
           },
           error: function(model, response) {
-            //TODO ERROR HANDLING
-            alert("ERROR REASSIGNING NOTE TO NOTEBOOK");
+            alert(response);
           }
         });
         ui.helper.remove();

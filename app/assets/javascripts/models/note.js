@@ -10,7 +10,7 @@ WhateverNote.Models.Note = Backbone.Model.extend({
   },
   
   preview: function() {
-    //TODO: Remove tags, trim down to three lines
+    //TODO: Trim down to three lines
     return jQuery(this.get("contents")).text();
   },
   

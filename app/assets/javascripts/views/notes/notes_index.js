@@ -46,8 +46,7 @@ WhateverNote.Views.NotesIndex = Backbone.CompositeView.extend({
         that.showNote(newNote);
       }, 
       error: function(model, response) {
-        // SHOW ERRORS
-        alert("ERROR CREATING NOTE");
+        alert(response)
       }
     });
   },
