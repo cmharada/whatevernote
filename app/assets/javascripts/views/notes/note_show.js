@@ -42,6 +42,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
       CKEDITOR.remove(CKEDITOR.instances["note[contents]"]);
     }
     this.$(".cke").remove();
+    this.$(".loading-editor").addClass("hidden");
     this.editor = CKEDITOR.replace("note[contents]");
     this.editor.on("instanceReady", function() {
       this.resize('100%', 600);
