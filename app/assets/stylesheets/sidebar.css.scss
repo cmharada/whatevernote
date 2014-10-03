@@ -31,6 +31,15 @@
   background: #D0FFF4;
 }
 
+.item-title {
+  display: inline-block;
+  height: 30px;
+  vertical-align: middle;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .active {
   background: #D0FFF4;
 }

@@ -8,6 +8,14 @@ WhateverNote.Models.Notebook = Backbone.Model.extend({
     return this._notes;
   },
   
+  shortTitle: function() {
+    var title = this.escape("title");
+    if (title.length > 17) {
+      return title.slice(0, 15) + "...";
+    }
+    return title;
+  },
+  
   parse: function(payload) {
     if (payload.notes) {
       this.notes().set(payload.notes, { parse: true });

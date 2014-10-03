@@ -11,7 +11,8 @@
 <ul class="nav notebook-index collapse in">
   <li class="notebook" data-id="null">
     <div class="notebook-title item">
-      <span class="glyphicon glyphicon-folder-open"></span>All Notes
+      <span class="glyphicon glyphicon-folder-open"></span>
+      All Notes
       <span class="badge"><%= allNotes.length %></span>
       <span class="arrow">
         <span class="glyphicon glyphicon-arrow-left"></span>
@@ -22,7 +23,9 @@
     <li class="notebook" data-id="<%= notebook.id %>">
       <div class="notebook-title item">
         <span class="glyphicon glyphicon-folder-open"></span>
-        <%= notebook.escape("title") %>
+        <span class="item-title">
+          <%= notebook.escape("title") %>
+        </span>
         <span class="badge"><%= notebook.escape("notes_count") %></span>
         <span class="arrow">
           <span class="glyphicon glyphicon-arrow-left"></span>
