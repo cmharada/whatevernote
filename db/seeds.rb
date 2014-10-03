@@ -3,7 +3,7 @@ User.create!([
 ])
 Notebook.create!([
   {title: "Recipes", user_id: 1},
-  {title: "The Adventures of Sherlock Holmes", user_id: 1}
+  {title: "Mysteries", user_id: 1}
 ])
 Tag.create!([
   {name: "Welcome", user_id: 1},
