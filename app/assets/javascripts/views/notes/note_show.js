@@ -56,8 +56,8 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   
   updateNotebook: function(event) {
     var that = this;
-    this.statusLoading();
     var newNotebookId = $(event.currentTarget).val();
+    this.statusLoading();
     this.model.set({ notebook_id: newNotebookId });
     this.model.save({}, {
       success: function() {
@@ -95,15 +95,18 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   statusLoading: function() {
-    this.$(".status").html("<span class='fa-spin fa fa-spinner'></span>");
+    this.$(".status").removeClass("fadeOut");
+    this.$(".status").html("<span class='fa fa-spin fa-spinner'>");
   },
   
   statusSuccess: function() {
-    this.$(".status").html("<span class='fa fa-check text-success'></span>");
+    this.$(".status").html("<img src='/images/logo-happy.png'>");
+    this.$(".status").append("<span class='text-success'>Saved!</span>");
+    this.$(".status").addClass("fadeOut");
   },
   
   statusError: function(errors) {
-    this.$(".status").html("<span class='fa fa-thumbs-o-down text-danger'>" +
-       "</span>" + errors);
+    this.$(".status").html("<span class='text-danger'>" + errors + 
+      "</span>");
   }
 });

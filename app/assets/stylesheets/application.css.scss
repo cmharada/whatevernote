@@ -127,3 +127,27 @@ body {
   font-size: 8px;
   border-radius: 2px;
 }
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  70% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  70% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  opacity: 0;
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+          
+	-webkit-animation-duration: 3.0s;   
+        	animation-duration: 3.0s;	
+          
+  -webkit-animation-iteration-count: 1;
+        	animation-iteration-count: 1;
+}
