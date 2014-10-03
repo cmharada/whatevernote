@@ -11,7 +11,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "change:notebook_id change:tags", this.render);
     
     var tagsView = new WhateverNote.Views.TagsNote({
       collection: this.model.tags(),
@@ -43,7 +43,7 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
     }
     this.$(".cke").remove();
     this.editor = CKEDITOR.replace("note[contents]");
-    this.editor.on("instanceReady", function(event) {
+    this.editor.on("instanceReady", function() {
       this.resize('100%', 600);
     });
   },
@@ -54,32 +54,56 @@ WhateverNote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   updateNotebook: function(event) {
+    var that = this;
+    this.statusLoading();
     var newNotebookId = $(event.currentTarget).val();
     this.model.set({ notebook_id: newNotebookId });
     this.model.save({}, {
       success: function() {
+        that.statusSuccess();
         WhateverNote.notebooks.fetch();
       },
       error: function(model, response) {
         //TODO: Error handling
+        that.statusError(response);
       }
     });
   },
   
   updateNote: function(event) {
     event.preventDefault();
+    var that = this;
 
     for ( var instance in CKEDITOR.instances ) {
       CKEDITOR.instances[instance].updateElement();
     }
     
     var params = $(event.currentTarget).serializeJSON();
+    this.statusLoading();
     this.model.set(params);
     this.model.save({}, {
+      success: function() {
+        that.statusSuccess();
+      },
       error: function(model, response) {
-        //TODO Error Handling
-        alert("ERROR SAVING NOTE");
+        that.statusError(response.errors);
       }
     });
+    if (params["note"]["title"] === "") {
+      this.$("#note-title").val("Untitled");
+    }
+  },
+  
+  statusLoading: function() {
+    this.$(".status").html("<span class='fa-spin fa fa-spinner'></span>");
+  },
+  
+  statusSuccess: function() {
+    this.$(".status").html("<span class='fa fa-check text-success'></span>");
+  },
+  
+  statusError: function(errors) {
+    this.$(".status").html("<span class='fa fa-thumbs-o-down text-danger'>"
+      + "</span>" + errors);
   }
 });
