@@ -15,4 +15,3 @@ notebooks = demo.notebooks.create([
   { title: "Recipes" }, { title: "Todos" }, { title: "Cats" }
 ])
 
-note = demo.notes.create()
